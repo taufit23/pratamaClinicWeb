@@ -20,6 +20,8 @@
         "vue": "^3.2.31"
     },
     "dependencies": {
+        "@coreui/icons": "^2.1.0",
+        "@coreui/icons-vue": "^2.0.0",
         "@popperjs/core": "^2.11.6",
         "chart.js": "^3.9.1",
         "dayjs": "^1.11.5",

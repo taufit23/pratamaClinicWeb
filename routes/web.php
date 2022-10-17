@@ -11,24 +11,17 @@ use Inertia\Inertia;
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
 // private
+
+Route::prefix('admin')->group(function () {
+    Route::get('/users', function () {
+        // Matches The "/admin/users" URL
+    });
+});
 Route::middleware('auth', 'verified')->group(function () {
-    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+    Route::prefix('private')->group(function (){
+        Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+    });
 });
 
-// Route::get('/', function () {
-//     return Inertia::render('Welcome', [
-//         'canLogin' => Route::has('login'),
-//         'canRegister' => Route::has('register'),
-//         'laravelVersion' => Application::VERSION,
-//         'phpVersion' => PHP_VERSION,
-//     ]);
-// });
-
-// Route::get('/dashboard', function () {
-//     return Inertia::render('Dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
-// require __DIR__.'/auth.php';
-
-// V1
+// V1 Auth
 require __DIR__.'/V1/auth.php';

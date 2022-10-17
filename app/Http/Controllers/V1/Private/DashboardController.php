@@ -10,6 +10,8 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return Inertia::render('V1/Private/Dashboard/Index');
+        return Inertia::render('V1/Private/Dashboard/Index', [
+            'role' => auth()->user()->role
+        ]);
     }
 }

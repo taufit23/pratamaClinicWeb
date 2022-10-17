@@ -1,7 +1,10 @@
 <script setup>
-import AuthenticatedLayout from '@/Layouts/V1/AuthenticatedLayout.vue';
-
+    import AuthenticatedLayout from '@/Layouts/V1/AuthenticatedLayout.vue';
+    
+    const props = defineProps(['role']);
 </script>
 <template>
-    <AuthenticatedLayout></AuthenticatedLayout>
+
+    <AuthenticatedLayout :role="role">
+    </AuthenticatedLayout>
 </template>
