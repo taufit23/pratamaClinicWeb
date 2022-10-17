@@ -18,7 +18,7 @@ class PasienMiddleware
     public function handle(Request $request, Closure $next)
     {
         if (Auth::user()->role == 'pasien') {
-            return route('pasien.dashboard.index');
+            return route('dashboard.index');
         }
         return $next($request);
     }

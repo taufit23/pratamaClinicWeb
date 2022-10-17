@@ -25,7 +25,4 @@ import { Link } from '@inertiajs/inertia-vue3';
             </ul>
         </div>
     </nav>
-
-    
-    <!-- End Navbar -->
 </template>

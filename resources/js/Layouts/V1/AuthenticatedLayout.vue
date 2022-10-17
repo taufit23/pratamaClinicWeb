@@ -1,279 +1,34 @@
 <script setup>
     import PrivateNavbar from "@/Components/V1/Navbar/PrivateNavbar.vue";
     import PrivateSidebar from "@/Components/V1/Sidebar/PrivateSidebar.vue";
-    import PrivateLine from "@/Components/V1/Chart/PrivateLine.vue";
-    import PrivateBar from "@/Components/V1/Chart/PrivateBar.vue";
     import {
-        CIcon
-    } from '@coreui/icons-vue';
-    import * as icon from '@coreui/icons';
+        Link
+    } from '@inertiajs/inertia-vue3';
+    import PrivateDropdownMenu from "@/Components/V1/Navbar/PrivateDropdownMenu.vue";
+
+    const props = defineProps(['href', 'text'])
 </script>
 <template>
     <div>
         <PrivateSidebar></PrivateSidebar>
         <div class="relative md:ml-64 bg-blueGray-100">
-            <PrivateNavbar>Dashboard</PrivateNavbar>
-            <!-- Header -->
-            <div class="relative pt-12 pb-32 bg-pink-600 md:pt-32">
+            <nav
+                class="absolute top-0 left-0 z-10 flex items-center w-full p-4 bg-transparent md:flex-row md:flex-nowrap md:justify-start">
+                <div class="flex flex-wrap items-center justify-between w-full px-4 mx-autp md:flex-nowrap md:px-10">
+                    <!-- Brand -->
+                    <Link class="hidden text-sm font-semibold text-white uppercase lg:inline-block" :href="href" v-text="text">
+                    </Link>
+                    <!-- User -->
+                    <ul class="flex-col items-center hidden list-none md:flex-row md:flex">
+                        <PrivateDropdownMenu></PrivateDropdownMenu>
+                    </ul>
+                </div>
+            </nav>
+            <div class="relative pt-12 pb-32 bg-blue-400 md:pt-32">
                 <div class="w-full px-4 mx-auto md:px-10">
                     <div>
                         <!-- Card stats -->
-                        <div class="flex flex-wrap my-2">
-                            <div class="w-full px-4 lg:w-6/12 xl:w-3/12">
-                                <div
-                                    class="relative flex flex-col min-w-0 mb-6 break-words bg-white rounded shadow-lg xl:mb-0">
-                                    <div class="flex-auto p-4">
-                                        <div class="flex flex-wrap">
-                                            <div class="relative flex-1 flex-grow w-full max-w-full pr-4">
-                                                <h5 class="text-xs font-bold uppercase text-blueGray-400">
-                                                    Traffic
-                                                </h5>
-                                                <span class="text-xl font-semibold text-blueGray-700">
-                                                    350,897
-                                                </span>
-                                            </div>
-                                            <div class="relative flex-initial w-auto pl-4">
-                                                <div
-                                                    class="inline-flex items-center justify-center w-12 h-12 p-3 text-center text-white bg-red-500 rounded-full shadow-lg">
-
-                                                    <CIcon :icon="icon.cilList" size="xxl" />
-                                                    <i class="far fa-chart-bar"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <p class="mt-4 text-sm text-blueGray-400">
-                                            <span class="mr-2 text-emerald-500">
-                                                <i class="fas fa-arrow-up"></i> 3.48%
-                                            </span>
-                                            <span class="whitespace-nowrap">
-                                                Since last month
-                                            </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w-full px-4 lg:w-6/12 xl:w-3/12">
-                                <div
-                                    class="relative flex flex-col min-w-0 mb-6 break-words bg-white rounded shadow-lg xl:mb-0">
-                                    <div class="flex-auto p-4">
-                                        <div class="flex flex-wrap">
-                                            <div class="relative flex-1 flex-grow w-full max-w-full pr-4">
-                                                <h5 class="text-xs font-bold uppercase text-blueGray-400">
-                                                    New users
-                                                </h5>
-                                                <span class="text-xl font-semibold text-blueGray-700">
-                                                    2,356
-                                                </span>
-                                            </div>
-                                            <div class="relative flex-initial w-auto pl-4">
-                                                <div
-                                                    class="inline-flex items-center justify-center w-12 h-12 p-3 text-center text-white bg-orange-500 rounded-full shadow-lg">
-                                                    <i class="fas fa-chart-pie"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <p class="mt-4 text-sm text-blueGray-400">
-                                            <span class="mr-2 text-red-500">
-                                                <i class="fas fa-arrow-down"></i> 3.48%
-                                            </span>
-                                            <span class="whitespace-nowrap">
-                                                Since last week
-                                            </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w-full px-4 lg:w-6/12 xl:w-3/12">
-                                <div
-                                    class="relative flex flex-col min-w-0 mb-6 break-words bg-white rounded shadow-lg xl:mb-0">
-                                    <div class="flex-auto p-4">
-                                        <div class="flex flex-wrap">
-                                            <div class="relative flex-1 flex-grow w-full max-w-full pr-4">
-                                                <h5 class="text-xs font-bold uppercase text-blueGray-400">
-                                                    Sales
-                                                </h5>
-                                                <span class="text-xl font-semibold text-blueGray-700">
-                                                    924
-                                                </span>
-                                            </div>
-                                            <div class="relative flex-initial w-auto pl-4">
-                                                <div
-                                                    class="inline-flex items-center justify-center w-12 h-12 p-3 text-center text-white bg-pink-500 rounded-full shadow-lg">
-                                                    <i class="fas fa-users"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <p class="mt-4 text-sm text-blueGray-400">
-                                            <span class="mr-2 text-orange-500">
-                                                <i class="fas fa-arrow-down"></i> 1.10%
-                                            </span>
-                                            <span class="whitespace-nowrap">
-                                                Since yesterday
-                                            </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w-full px-4 lg:w-6/12 xl:w-3/12">
-                                <div
-                                    class="relative flex flex-col min-w-0 mb-6 break-words bg-white rounded shadow-lg xl:mb-0">
-                                    <div class="flex-auto p-4">
-                                        <div class="flex flex-wrap">
-                                            <div class="relative flex-1 flex-grow w-full max-w-full pr-4">
-                                                <h5 class="text-xs font-bold uppercase text-blueGray-400">
-                                                    Performance
-                                                </h5>
-                                                <span class="text-xl font-semibold text-blueGray-700">
-                                                    49,65%
-                                                </span>
-                                            </div>
-                                            <div class="relative flex-initial w-auto pl-4">
-                                                <div
-                                                    class="inline-flex items-center justify-center w-12 h-12 p-3 text-center text-white rounded-full shadow-lg bg-lightBlue-500">
-                                                    <i class="fas fa-percent"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <p class="mt-4 text-sm text-blueGray-400">
-                                            <span class="mr-2 text-emerald-500">
-                                                <i class="fas fa-arrow-up"></i> 12%
-                                            </span>
-                                            <span class="whitespace-nowrap">
-                                                Since last month
-                                            </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex flex-wrap my-2">
-                            <div class="w-full px-4 lg:w-6/12 xl:w-3/12">
-                                <div
-                                    class="relative flex flex-col min-w-0 mb-6 break-words bg-white rounded shadow-lg xl:mb-0">
-                                    <div class="flex-auto p-4">
-                                        <div class="flex flex-wrap">
-                                            <div class="relative flex-1 flex-grow w-full max-w-full pr-4">
-                                                <h5 class="text-xs font-bold uppercase text-blueGray-400">
-                                                    Traffic
-                                                </h5>
-                                                <span class="text-xl font-semibold text-blueGray-700">
-                                                    350,897
-                                                </span>
-                                            </div>
-                                            <div class="relative flex-initial w-auto pl-4">
-                                                <div
-                                                    class="inline-flex items-center justify-center w-12 h-12 p-3 text-center text-white bg-red-500 rounded-full shadow-lg">
-
-                                                    <CIcon :icon="icon.cilList" size="xxl" />
-                                                    <i class="far fa-chart-bar"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <p class="mt-4 text-sm text-blueGray-400">
-                                            <span class="mr-2 text-emerald-500">
-                                                <i class="fas fa-arrow-up"></i> 3.48%
-                                            </span>
-                                            <span class="whitespace-nowrap">
-                                                Since last month
-                                            </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w-full px-4 lg:w-6/12 xl:w-3/12">
-                                <div
-                                    class="relative flex flex-col min-w-0 mb-6 break-words bg-white rounded shadow-lg xl:mb-0">
-                                    <div class="flex-auto p-4">
-                                        <div class="flex flex-wrap">
-                                            <div class="relative flex-1 flex-grow w-full max-w-full pr-4">
-                                                <h5 class="text-xs font-bold uppercase text-blueGray-400">
-                                                    New users
-                                                </h5>
-                                                <span class="text-xl font-semibold text-blueGray-700">
-                                                    2,356
-                                                </span>
-                                            </div>
-                                            <div class="relative flex-initial w-auto pl-4">
-                                                <div
-                                                    class="inline-flex items-center justify-center w-12 h-12 p-3 text-center text-white bg-orange-500 rounded-full shadow-lg">
-                                                    <i class="fas fa-chart-pie"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <p class="mt-4 text-sm text-blueGray-400">
-                                            <span class="mr-2 text-red-500">
-                                                <i class="fas fa-arrow-down"></i> 3.48%
-                                            </span>
-                                            <span class="whitespace-nowrap">
-                                                Since last week
-                                            </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w-full px-4 lg:w-6/12 xl:w-3/12">
-                                <div
-                                    class="relative flex flex-col min-w-0 mb-6 break-words bg-white rounded shadow-lg xl:mb-0">
-                                    <div class="flex-auto p-4">
-                                        <div class="flex flex-wrap">
-                                            <div class="relative flex-1 flex-grow w-full max-w-full pr-4">
-                                                <h5 class="text-xs font-bold uppercase text-blueGray-400">
-                                                    Sales
-                                                </h5>
-                                                <span class="text-xl font-semibold text-blueGray-700">
-                                                    924
-                                                </span>
-                                            </div>
-                                            <div class="relative flex-initial w-auto pl-4">
-                                                <div
-                                                    class="inline-flex items-center justify-center w-12 h-12 p-3 text-center text-white bg-pink-500 rounded-full shadow-lg">
-                                                    <i class="fas fa-users"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <p class="mt-4 text-sm text-blueGray-400">
-                                            <span class="mr-2 text-orange-500">
-                                                <i class="fas fa-arrow-down"></i> 1.10%
-                                            </span>
-                                            <span class="whitespace-nowrap">
-                                                Since yesterday
-                                            </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w-full px-4 lg:w-6/12 xl:w-3/12">
-                                <div
-                                    class="relative flex flex-col min-w-0 mb-6 break-words bg-white rounded shadow-lg xl:mb-0">
-                                    <div class="flex-auto p-4">
-                                        <div class="flex flex-wrap">
-                                            <div class="relative flex-1 flex-grow w-full max-w-full pr-4">
-                                                <h5 class="text-xs font-bold uppercase text-blueGray-400">
-                                                    Performance
-                                                </h5>
-                                                <span class="text-xl font-semibold text-blueGray-700">
-                                                    49,65%
-                                                </span>
-                                            </div>
-                                            <div class="relative flex-initial w-auto pl-4">
-                                                <div
-                                                    class="inline-flex items-center justify-center w-12 h-12 p-3 text-center text-white rounded-full shadow-lg bg-lightBlue-500">
-                                                    <i class="fas fa-percent"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <p class="mt-4 text-sm text-blueGray-400">
-                                            <span class="mr-2 text-emerald-500">
-                                                <i class="fas fa-arrow-up"></i> 12%
-                                            </span>
-                                            <span class="whitespace-nowrap">
-                                                Since last month
-                                            </span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <slot />
                     </div>
                 </div>
             </div>
