@@ -38,7 +38,7 @@ class User extends Authenticatable
     }
     public function admin()
     {
-        return $this->belongsTo(Admin::class);
+        return $this->hasOne(Admin::class);
     }
     public function pasien()
     {

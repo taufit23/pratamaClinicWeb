@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('rekam_medis_id');
-            $table->integer('total_bayar');
+            $table->bigInteger('total_bayar');
             $table->string('status_bayar');
             $table->timestamps();
         });

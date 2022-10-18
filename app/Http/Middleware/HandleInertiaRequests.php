@@ -2,10 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
-use Tightenco\Ziggy\Ziggy;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -36,13 +34,35 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request)
     {
         return array_merge(parent::share($request), [
-            'auth' => [
-                'user' => User::with('pasien', 'dokter', 'admin')->findOrFail($request->user()->id),
-            ],
-            'ziggy' => function () use ($request) {
-                return array_merge((new Ziggy)->toArray(), [
-                    'location' => $request->url(),
-                ]);
+            'auth' => function () use ($request) {
+                return [
+                    'user' => $request->user()
+                        ? [
+                            'role' => $request->user()->role,
+                            'username' => $request->user()->username,
+                            'created_at' => $request->user()->created_at,
+                            'updated_at' => $request->user()->updated_at,
+                            'pasien' => $request->user()->role == 'pasien' ?
+                            [
+                                'id' => $request->user()->pasien->id,
+                                'name' => $request->user()->pasien->name,
+                                'ktp' => $request->user()->pasien->ktp,
+                                'bpjs' => $request->user()->pasien->bpjs,
+                                'no_hp' => $request->user()->pasien->no_hp,
+                                'jenis_kelamin' => $request->user()->pasien->jenis_kelamin,
+                                'tanggal_lahir' => $request->user()->pasien->tanggal_lahir,
+                                'alamat' => $request->user()->pasien->alamat,
+                                'created_at' => $request->user()->pasien->created_at,
+                                'updated_at' => $request->user()->pasien->updated_at,
+                            ] : null,
+                            'admin' =>$request->user()->role == 'admin' ?
+                            [
+                                'id' => $request->user()->admin->id,
+                                'name' => $request->user()->admin->name,
+                            ]:null,
+                        ]
+                        : null,
+                ];
             },
         ]);
     }

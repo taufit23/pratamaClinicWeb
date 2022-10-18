@@ -16,7 +16,6 @@
             class="flex flex-wrap items-center justify-between w-full px-0 mx-auto md:flex-col md:items-stretch md:min-h-full md:flex-nowrap">
             <!-- Brand -->
             <BrandLogo :href="route('dashboard.index')">Klinik Pratama</BrandLogo>
-
             <!-- User -->
             <ul class="flex flex-wrap items-center list-none md:hidden">
                 <li class="relative inline-block">
@@ -26,27 +25,27 @@
                     <PrivateDropdownMenu></PrivateDropdownMenu>
                 </li>
             </ul>
-            <div class="absolute top-0 left-0 right-0 z-40 items-center flex-1 h-auto overflow-x-hidden overflow-y-auto rounded shadow md:flex md:flex-col md:items-stretch md:opacity-100 md:relative md:mt-4 md:shadow-none"
-                v-bind:class="collapseShow">
+            <div
+                class="absolute top-0 left-0 right-0 z-40 items-center flex-1 h-auto overflow-x-hidden overflow-y-auto rounded shadow md:flex md:flex-col md:items-stretch md:opacity-100 md:relative md:mt-2 md:shadow-none">
                 <!-- Pasien link -->
                 <ul class="flex flex-col list-none md:flex-col md:min-w-full"
                     v-if="$page.props.auth.user.role == 'pasien'">
                     <PrivateSideLink :href="route('dashboard.index')" :active="route().current('dashboard.index')">
                         <CIcon :icon="icon.cilTv" size="sm"
                             class="inline-flex items-center justify-center mr-2 text-center w-9 h-9" />
-                        Dashboard {{ $page.props.auth.user.role  }}
+                        Dashboard {{ $page . props . auth . user . role }}
                     </PrivateSideLink>
                     <PrivateSideLink :href="route('profile.index')" :active="route().current('profile.index')">
                         <CIcon :icon="icon.cilUser" size="sm"
                             class="inline-flex items-center justify-center mr-2 text-center w-9 h-9" />
                         Profile
-                        {{ $page.props.auth.user.role  }}
+                        {{ $page . props . auth . user . role }}
                     </PrivateSideLink>
                     <PrivateSideLink :href="route('rekam_medis.index')" :active="route().current('rekam_medis.index')">
                         <CIcon :icon="icon.cilMedicalCross" size="sm"
                             class="inline-flex items-center justify-center mr-2 text-center w-9 h-9" />
                         Rekam Medis
-                        {{ $page.props.auth.user.role  }}
+                        {{ $page . props . auth . user . role }}
                     </PrivateSideLink>
                 </ul>
                 <!-- Dokter link -->
@@ -56,16 +55,28 @@
                         <CIcon :icon="icon.cilTv" size="sm"
                             class="inline-flex items-center justify-center mr-2 text-center w-9 h-9" />
                         Dashboard
-                        {{ $page.props.auth.user.role  }}
+                        {{ $page . props . auth . user . role }}
                     </PrivateSideLink>
                 </ul>
+                <!-- Admin link -->
                 <ul class="flex flex-col list-none md:flex-col md:min-w-full"
                     v-if="$page.props.auth.user.role == 'admin'">
                     <PrivateSideLink :href="route('dashboard.index')" :active="route().current('dashboard.index')">
                         <CIcon :icon="icon.cilTv" size="sm"
                             class="inline-flex items-center justify-center mr-2 text-center w-9 h-9" />
                         Dashboard
-                        {{ $page.props.auth.user.role  }}
+                        {{ $page . props . auth . user . role }}
+                    </PrivateSideLink>
+                    <PrivateSideLink :href="route('admin.profile.index')" :active="route().current('admin.profile.index')">
+                        <CIcon :icon="icon.cilUser" size="sm"
+                            class="inline-flex items-center justify-center mr-2 text-center w-9 h-9" />
+                        Profile
+                        {{ $page . props . auth . user . role }}
+                    </PrivateSideLink>
+                    <PrivateSideLink :href="route('admin.dokter.index')" :active="route().current('admin.dokter.index')">
+                        <CIcon :icon="icon.cilHospital" size="sm"
+                            class="inline-flex items-center justify-center mr-2 text-center w-9 h-9" />
+                        Data Dokter
                     </PrivateSideLink>
                 </ul>
             </div>

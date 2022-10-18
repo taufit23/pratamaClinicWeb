@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id');
             $table->string('name');
-            $table->integer('ktp');
-            $table->integer('bpjs');
-            $table->integer('no_hp');
+            $table->bigInteger('ktp');
+            $table->bigInteger('bpjs');
+            $table->bigInteger('no_hp');
             $table->string('jenis_kelamin');
             $table->date('tanggal_lahir');
             $table->text('alamat');
