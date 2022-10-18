@@ -1,46 +1,107 @@
-# undefined
+# Sistem informasi klinik
 
 ## Table of Contents
 
-- [About](#about)
-- [Getting Started](#getting_started)
+- [tentang](#tentang)
 - [Usage](#usage)
-- [Contributing](../CONTRIBUTING.md)
 
-## About <a name = "about"></a>
+## Tentang <a name="tentang"></a>
 
-Write about 1-2 paragraphs describing the purpose of your project.
+Project dibuat dengan framework laravel 9 + inertia js + vue js + tailwindCss
 
-## Getting Started <a name = "getting_started"></a>
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+**Projcet Start** date 16 Oktober 2022
+**Projcet End** Prosess
 
 ### Prerequisites
 
-What things you need to install the software and how to install them.
+```
+PHP 8.1.6 (cli)
+```
+```
+NodeJs v16.17.0
+```
+```
+Npm v16.17.0
+```
+```
+Laravel 9.1*
+```
+```
+Mysql
+```
 
-```
-Give examples
-```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running.
+Langkah cloning
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
+Clone dari link github
 
 ```
-until finished
+git clone https://github.com/taufit23/pratamaClinicWeb
 ```
 
-End with an example of getting some data out of the system or using it for a little demo.
+Masuk directory project
 
-## Usage <a name = "usage"></a>
+```
+cd pratamaClinicWeb
+```
 
-Add notes about how to use the system.
+Install vendor laravel 9
+
+```
+composer install
+```
+
+Copy .env.example ke .env
+
+```
+cp .env.example .env
+```
+
+Buat database di mysql
+
+```
+pratamaclinicweb
+```
+
+
+Generate Key laravel
+
+```
+php artisan key:generate
+```
+
+Migrasi database
+
+```
+php artisan migrate:fresh
+```
+
+Install dependecy
+
+```
+npm install
+```
+
+Jalankan development
+
+```
+npm run dev
+```
+
+Jalankan server laravel
+
+```
+php artisan serve
+```
+## Usage <a name="usage"></a>
+
+Kunjungi menggukan browser
+```
+http://localhost:8000/
+```
+Or
+```
+http://127.0.0.1:8000/
+```
