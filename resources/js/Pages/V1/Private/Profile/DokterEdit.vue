@@ -1,6 +1,5 @@
 <script setup>
     import AuthenticatedLayout from '@/Layouts/V1/AuthenticatedLayout.vue';
-    import SuccessButton from '@/Components/V1/Button/SuccessButton.vue';
     import PublicInputText from '@/Components/V1/Form/PublicInputText.vue';
     import InputError from '@/Components/InputError.vue';
     import {
@@ -10,17 +9,21 @@
     } from '@inertiajs/inertia-vue3';
     import PrimaryButton from '@/Components/V1/Button/PrimaryButton.vue';
 
+    const props = defineProps({
+        dokter: Object,
+        user: Object
+    })
     const form = useForm({
-        username: '',
-        name: '',
-        nip: '',
-        bidang: '',
-        alamat: ''
+        username: props.user.username,
+        name: props.dokter.name,
+        nip: props.dokter.nip,
+        bidang: props.dokter.bidang,
+        alamat: props.dokter.alamat
     });
 </script>
 <template>
-    <AuthenticatedLayout :href="route('admin.dokter.index')" text="Data Dokter / Tambah">
-        <form @submit.prevent="form.post(route('admin.dokter.store'), { onSuccess: () => form.reset() })">
+    <AuthenticatedLayout :href="route('profile.index')" text="Profile">
+        <form @submit.prevent="form.put(route('dokter.profile.update'), { onSuccess: () => form.reset() })">
             <div class="flex flex-wrap mb-3 -mx-3">
                 <div class="w-full px-3 mb-6 md:w-1/2 md:mb-0">
                     <PublicInputText :label="'Nama Lengkap'" :type="'text'" :placeholder="'Ex : Alzikri'"
@@ -67,8 +70,9 @@
                 </div>
             </div>
             <div class="mt-6 text-center">
-                <PrimaryButton :disabled="form.processing">Tambah</PrimaryButton>
+                <PrimaryButton :disabled="form.processing">Update</PrimaryButton>
             </div>
         </form>
+
     </AuthenticatedLayout>
 </template>

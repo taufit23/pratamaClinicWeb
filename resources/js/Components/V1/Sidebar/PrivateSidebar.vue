@@ -57,6 +57,19 @@
                         Dashboard
                         {{ $page . props . auth . user . role }}
                     </PrivateSideLink>
+                    <PrivateSideLink :href="route('dokter.profile.index')"
+                        :active="route().current('dokter.profile.index')">
+                        <CIcon :icon="icon.cilUser" size="sm"
+                            class="inline-flex items-center justify-center mr-2 text-center w-9 h-9" />
+                        Profile
+                        {{ $page . props . auth . user . role }}
+                    </PrivateSideLink>
+                    <PrivateSideLink :href="route('dokter.pasien.index')"
+                        :active="route().current('dokter.pasien.index')">
+                        <CIcon :icon="icon.cilAddressBook" size="sm"
+                            class="inline-flex items-center justify-center mr-2 text-center w-9 h-9" />
+                        Data pasien
+                    </PrivateSideLink>
                 </ul>
                 <!-- Admin link -->
                 <ul class="flex flex-col list-none md:flex-col md:min-w-full"
@@ -67,16 +80,24 @@
                         Dashboard
                         {{ $page . props . auth . user . role }}
                     </PrivateSideLink>
-                    <PrivateSideLink :href="route('admin.profile.index')" :active="route().current('admin.profile.index')">
+                    <PrivateSideLink :href="route('admin.profile.index')"
+                        :active="route().current('admin.profile.index')">
                         <CIcon :icon="icon.cilUser" size="sm"
                             class="inline-flex items-center justify-center mr-2 text-center w-9 h-9" />
                         Profile
                         {{ $page . props . auth . user . role }}
                     </PrivateSideLink>
-                    <PrivateSideLink :href="route('admin.dokter.index')" :active="route().current('admin.dokter.index')">
+                    <PrivateSideLink :href="route('admin.dokter.index')"
+                        :active="route().current('admin.dokter.index')">
                         <CIcon :icon="icon.cilHospital" size="sm"
                             class="inline-flex items-center justify-center mr-2 text-center w-9 h-9" />
                         Data Dokter
+                    </PrivateSideLink>
+                    <PrivateSideLink :href="route('admin.pasien.index')"
+                        :active="route().current('admin.pasien.index')">
+                        <CIcon :icon="icon.cilAddressBook" size="sm"
+                            class="inline-flex items-center justify-center mr-2 text-center w-9 h-9" />
+                        Data Pasien
                     </PrivateSideLink>
                 </ul>
             </div>

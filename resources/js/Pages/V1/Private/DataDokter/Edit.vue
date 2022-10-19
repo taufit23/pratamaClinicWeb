@@ -10,17 +10,21 @@
     } from '@inertiajs/inertia-vue3';
     import PrimaryButton from '@/Components/V1/Button/PrimaryButton.vue';
 
+    const props = defineProps({
+        user: Object,
+        dokter: Object,
+    });
     const form = useForm({
-        username: '',
-        name: '',
-        nip: '',
-        bidang: '',
-        alamat: ''
+        username: props.user.username,
+        name: props.dokter.name,
+        nip: props.dokter.nip,
+        bidang: props.dokter.bidang,
+        alamat: props.dokter.alamat
     });
 </script>
 <template>
-    <AuthenticatedLayout :href="route('admin.dokter.index')" text="Data Dokter / Tambah">
-        <form @submit.prevent="form.post(route('admin.dokter.store'), { onSuccess: () => form.reset() })">
+    <AuthenticatedLayout :href="route('admin.dokter.index')" text="Data Dokter / Edit">
+        <form @submit.prevent="form.put(route('admin.dokter.update', user.id), { onSuccess: () => form.reset() })">
             <div class="flex flex-wrap mb-3 -mx-3">
                 <div class="w-full px-3 mb-6 md:w-1/2 md:mb-0">
                     <PublicInputText :label="'Nama Lengkap'" :type="'text'" :placeholder="'Ex : Alzikri'"
@@ -67,7 +71,7 @@
                 </div>
             </div>
             <div class="mt-6 text-center">
-                <PrimaryButton :disabled="form.processing">Tambah</PrimaryButton>
+                <PrimaryButton :disabled="form.processing">Update</PrimaryButton>
             </div>
         </form>
     </AuthenticatedLayout>

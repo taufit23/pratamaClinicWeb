@@ -34,7 +34,7 @@ class User extends Authenticatable
     ];
     public function dokter()
     {
-        return $this->belongsTo(Dokter::class);
+        return $this->hasOne(Dokter::class);
     }
     public function admin()
     {

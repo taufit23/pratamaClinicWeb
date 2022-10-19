@@ -6,9 +6,12 @@
         Link,
         useForm
     } from '@inertiajs/inertia-vue3';
-import { ref } from '@vue/reactivity';
+    import {
+        CIcon
+    } from '@coreui/icons-vue';
+    import * as icon from '@coreui/icons';
     const props = defineProps({
-        dokters: Object
+        pasiens: Object
     });
 
     const form = useForm({
@@ -16,13 +19,13 @@ import { ref } from '@vue/reactivity';
     });
 </script>
 <template>
-    <AuthenticatedLayout :href="route('admin.dokter.index')" text="Data Dokter">
+    <AuthenticatedLayout :href="route('admin.pasien.index')" text="Data Pasien">
         <div class="flex items-baseline w-auto h-auto space-x-1 space-y-1 justify-left">
             <div class="flex-auto order-none w-1/3 h-auto item">
-                <SuccessButton :href="route('admin.dokter.create')" class="">Tambah</SuccessButton>
+                <SuccessButton :href="route('admin.pasien.create')" class="">Tambah</SuccessButton>
             </div>
             <div class="flex-auto order-none w-1/3 h-auto item">
-                <form class="flex items-center" @submit.prevent="form.get(route('admin.dokter.index'))">
+                <form class="flex items-center" @submit.prevent="form.get(route('admin.pasien.index'))">
                     <div class="relative w-full">
                         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                             <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
@@ -32,9 +35,9 @@ import { ref } from '@vue/reactivity';
                                     clip-rule="evenodd"></path>
                             </svg>
                         </div>
-                        <input type="text" 
+                        <input type="text"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Cari berdasarkan nama dokter" v-model="form.cari">
+                            placeholder="Cari berdasarkan nama pasien" v-model="form.cari">
                     </div>
                     <button type="submit"
                         class="p-2.5 ml-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -49,28 +52,32 @@ import { ref } from '@vue/reactivity';
 
             </div>
         </div>
-        <table class="w-full table-fixed ">
-            <tr class="font-bold text-left whitespace-nowrap">
+        <table class="w-full table-fixed">
+            <tr class="font-bold text-left">
                 <th class="px-6 pt-6 pb-4">Username</th>
                 <th class="px-6 pt-6 pb-4">Nama lengkap</th>
                 <th class="px-6 pt-6 pb-4">Alamat</th>
-                <th class="px-6 pt-6 pb-4">bidang</th>
+                <th class="px-6 pt-6 pb-4">Jenis kelamin</th>
                 <th class="px-6 pt-6 pb-4">Aksi</th>
             </tr>
-            <tr class="hover:bg-gray-100 focus-within:bg-gray-100" v-for="dokter in dokters" :key="dokter.id">
-                <td class="px-6 pt-1 pb-1">{{ dokter . user . username }}</td>
-                <td class="px-6 pt-1 pb-1">{{ dokter . name }}</td>
-                <td class="">{{ dokter . alamat }}</td>
-                <td class="px-6 pt-1 pb-1">Poli {{ dokter . bidang }}</td>
-                <td class="px-6 pt-1 pb-1" colspan="3">
-                    <SuccessButton class="mx-1" :href="route('admin.dokter.edit', dokter.user.id)">Edit
-                    </SuccessButton>
-                    <SuccessButton class="mx-1" :href="route('admin.dokter.lupa_password', dokter.user.id)">Forgot password</SuccessButton>
-                    <!-- <SuccessButton class="mx-1">Hapus</SuccessButton> -->
+            <tr class="hover:bg-gray-100 focus-within:bg-gray-100" v-for="pasien in pasiens" :key="pasien.id">
+                <td class="px-6 pt-3 pb-2 text-yellow-900">
+                    <Link class="" :href="route('admin.pasien.show', pasien.user.id)">
+                    {{ pasien . user . username }}
+                    <CIcon :icon="icon.cilChevronRight" size="sm"
+                        class="inline-flex items-center justify-center w-5 h-5 mr-2 text-center" />
+                    </Link>
+                </td>
+                <td class="px-6 pt-3 pb-2">{{ pasien . name }}</td>
+                <td class="px-6 pt-3 pb-2 text-truncate">{{ pasien . alamat }}</td>
+                <td class="px-6 pt-3 pb-2">{{ pasien . jenis_kelamin }}</td>
+                <td class="px-6 pt-3 pb-2" colspan="3">
+                    <SuccessButton class="mx-1" :href="route('admin.pasien.lupa_password', pasien.user.id)">Forgot
+                        password</SuccessButton>
                 </td>
             </tr>
-            <tr v-if="dokters.length === 0">
-                <td class="px-6 py-4 border-t" colspan="5">Data dokter kosong!!!</td>
+            <tr v-if="pasiens.length === 0">
+                <td class="px-6 py-4 border-t" colspan="5">Data pasien kosong!!!</td>
             </tr>
         </table>
     </AuthenticatedLayout>

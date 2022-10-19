@@ -60,6 +60,14 @@ class HandleInertiaRequests extends Middleware
                                 'id' => $request->user()->admin->id,
                                 'name' => $request->user()->admin->name,
                             ]:null,
+                            'dokter' => $request->user()->role == 'dokter' ?
+                            [
+                                'id' => $request->user()->dokter->id,
+                                'name' => $request->user()->dokter->name,
+                                'nip' => $request->user()->dokter->nip,
+                                'alamat' => $request->user()->dokter->alamat,
+                                'bidang' => $request->user()->dokter->bidang,
+                            ]:null,
                         ]
                         : null,
                 ];

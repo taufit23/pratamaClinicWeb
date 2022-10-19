@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->string('nip');
             $table->string('name');
-            $table->text('alamat');
+            $table->text('alamat')->nullable();
             $table->text('bidang');
             $table->timestamps();
         });
