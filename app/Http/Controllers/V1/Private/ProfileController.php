@@ -26,9 +26,9 @@ class ProfileController extends Controller
         $pasien = Pasien::findOrFail(auth()->user()->pasien->id);
         $request->validate([
             'name' => 'required|string|max:255',
-            'nik' => 'required|max:255|unique:pasiens,ktp,'.$pasien->id,
-            'bpjs' => 'required|max:255|unique:pasiens,bpjs,'.$pasien->id,
-            'no_hp' => 'required|max:255|unique:pasiens,no_hp,'.$pasien->id,
+            'nik' => 'required|max:255|unique:pasiens,ktp,' . $pasien->id,
+            'bpjs' => 'required|max:255|unique:pasiens,bpjs,' . $pasien->id,
+            'no_hp' => 'required|max:255|unique:pasiens,no_hp,' . $pasien->id,
             'jenis_kelamin' => 'required|max:255',
             'tanggal_lahir' => 'required|max:255',
             'alamat' => 'required|max:255',
@@ -55,7 +55,7 @@ class ProfileController extends Controller
             'password' => 'required|string|max:255|confirmed',
         ]);
         #Match The Old Password
-        if(!Hash::check($request->password_lama, auth()->user()->password)){
+        if (!Hash::check($request->password_lama, auth()->user()->password)) {
             return back()->with("error", "Old Password Doesn't match!");
         }
         $user->password = Hash::make($request->password);

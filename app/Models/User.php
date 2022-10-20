@@ -44,4 +44,8 @@ class User extends Authenticatable
     {
         return $this->hasOne(Pasien::class);
     }
+    public function rekam_medis()
+    {
+        return $this->hasMany(RekamMedis::class);
+    }
 }

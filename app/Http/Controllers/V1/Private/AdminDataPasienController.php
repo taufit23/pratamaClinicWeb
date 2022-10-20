@@ -4,6 +4,7 @@ namespace App\Http\Controllers\V1\Private;
 
 use App\Http\Controllers\Controller;
 use App\Models\Pasien;
+use App\Models\RekamMedis;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -28,9 +29,11 @@ class AdminDataPasienController extends Controller
     }
     public function show(User $user)
     {
+        $rekam_medis = RekamMedis::where('user_id', $user->id)->with('user', 'dokter')->get();
         return Inertia::render('V1/Private/Pasien/Show', [
             'user' => $user,
             'pasien' => Pasien::where('user_id', $user->id)->first(),
+            'rekam_mediss' => $rekam_medis
         ]);
     }
     public function create()
@@ -82,4 +85,25 @@ class AdminDataPasienController extends Controller
         $user->save();
         return redirect()->route('admin.pasien.index');
     }
+    public function addMedicalRecord(User $user)
+    {
+        return Inertia::render('V1/Private/Pasien/AddMedicalRecord', [
+            'user' => $user,
+            'pasien' => Pasien::where('user_id', $user->id)->first()
+        ]);
+    }
+    public function storeMedicalRecord(User $user, Request $request)
+    {
+        $request->validate([
+            'tanggal_periksa' => 'required|date',
+            'keluhans' => 'required|array'
+        ]);
+        $rekam_medis = RekamMedis::create([
+            'user_id' => $user->id,
+            'tanggal_periksa' => $request->tanggal_periksa,
+            'keluhan' => $request->keluhans
+        ]);
+        return redirect()->route('admin.pasien.show', $user->id);
+    }
+    
 }

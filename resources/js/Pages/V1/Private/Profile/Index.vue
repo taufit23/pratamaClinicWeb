@@ -10,7 +10,7 @@
 <template>
     <AuthenticatedLayout :href="route('profile.index')" text="Profile">
         <div id="profile"
-            class="items-center w-full mx-6 bg-white rounded-lg shadow-2xl opacity-75 lg:w-full lg:rounded-t-lg lg:rounded-b-lg lg:mx-0">
+            class="items-center w-full mx-6 bg-white rounded-lg shadow-2xl lg:w-full lg:rounded-t-lg lg:rounded-b-lg lg:mx-0">
             <div class="items-center w-full p-4 md:p-12 lg:text-left">
                 <!-- Pasien profile -->
                 <div v-if="$page.props.auth.user.role == 'pasien'"

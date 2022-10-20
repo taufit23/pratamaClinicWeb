@@ -22,7 +22,7 @@
     <AuthenticatedLayout :href="route('dokter.pasien.index')" text="Data Pasien">
 
         <div class="flex-auto order-none w-1/3 h-auto item">
-            <form class="flex items-center" @submit.prevent="form.get(route('admin.pasien.index'))">
+            <form class="flex items-center" @submit.prevent="form.get(route('dokter.pasien.index'))">
                 <div class="relative w-full">
                     <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                         <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
@@ -58,7 +58,7 @@
             </tr>
             <tr class="hover:bg-gray-100 focus-within:bg-gray-100" v-for="pasien in pasiens" :key="pasien.id">
                 <td class="px-6 pt-3 pb-2 text-yellow-900">
-                    <Link class="" :href="route('admin.pasien.show', pasien.user.id)">
+                    <Link class="" :href="route('dokter.pasien.show', pasien.user.id)">
                     {{ pasien . user . username }}
                     <CIcon :icon="icon.cilChevronRight" size="sm"
                         class="inline-flex items-center justify-center w-5 h-5 mr-2 text-center" />
@@ -67,10 +67,7 @@
                 <td class="px-6 pt-3 pb-2">{{ pasien . name }}</td>
                 <td class="px-6 pt-3 pb-2 text-truncate">{{ pasien . alamat }}</td>
                 <td class="px-6 pt-3 pb-2">{{ pasien . jenis_kelamin }}</td>
-                <td class="px-6 pt-3 pb-2" colspan="3">
-                    <SuccessButton class="mx-1" :href="route('admin.pasien.lupa_password', pasien.user.id)">Forgot
-                        password</SuccessButton>
-                </td>
+                <td class="px-6 pt-3 pb-2">haha</td>
             </tr>
             <tr v-if="pasiens.length === 0">
                 <td class="px-6 py-4 border-t" colspan="5">Data pasien kosong!!!</td>

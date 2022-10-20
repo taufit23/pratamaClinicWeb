@@ -11,7 +11,7 @@
                     <!-- https://picsum.photos/1000/900?grayscale -->
                     <div class="absolute top-0 w-full h-full bg-center bg-cover"
                         style='background-image: url("");'>
-                        <span id="blackOverlay" class="absolute w-full h-full bg-black opacity-75"></span>
+                        <span id="blackOverlay" class="absolute w-full h-full bg-black "></span>
                     </div>
                     <div class="container relative mx-auto">
                         <div class="flex flex-wrap items-center">

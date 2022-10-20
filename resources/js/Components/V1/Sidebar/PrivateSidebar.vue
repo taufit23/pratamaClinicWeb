@@ -99,6 +99,12 @@
                             class="inline-flex items-center justify-center mr-2 text-center w-9 h-9" />
                         Data Pasien
                     </PrivateSideLink>
+                    <PrivateSideLink :href="route('admin.layanan.index')"
+                        :active="route().current('admin.layanan.index')">
+                        <CIcon :icon="icon.cilMedicalCross" size="sm"
+                            class="inline-flex items-center justify-center mr-2 text-center w-9 h-9" />
+                        Data Layanan
+                    </PrivateSideLink>
                 </ul>
             </div>
         </div>

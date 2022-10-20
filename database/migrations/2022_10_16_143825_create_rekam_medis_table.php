@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::create('rekam_medis', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->integer('dokter_id');
-            $table->integer('pembayaran_id');
+            $table->integer('dokter_id')->nullable();
+            $table->integer('pembayaran_id')->nullable();
             $table->date('tanggal_periksa');
-            $table->text('keluhan');
-            $table->text('diagnosa');
-            $table->text('jenis_penyakit');
+            $table->json('keluhan');
+            $table->json('diagnosa')->nullable();
+            $table->json('jenis_penyakit')->nullable();
             $table->timestamps();
         });
     }
