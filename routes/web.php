@@ -66,6 +66,11 @@ Route::middleware('auth', 'verified')->group(function () {
 
             // data layanan
             Route::get('layanan', [AdminLayananController::class, 'index'])->name('admin.layanan.index');
+            Route::get('layanan/create', [AdminLayananController::class, 'create'])->name('admin.layanan.create');
+            Route::post('layanan/store', [AdminLayananController::class, 'store'])->name('admin.layanan.store');
+            Route::get('{layanan}/layanan/edit', [AdminLayananController::class, 'edit'])->name('admin.layanan.edit');
+            Route::put('{layanan}/layanan/update', [AdminLayananController::class, 'update'])->name('admin.layanan.update');
+            Route::get('{layanan}/layanan/destroy', [AdminLayananController::class, 'destroy'])->name('admin.layanan.destroy');
         });
         // dokter
         Route::prefix('dokter')->group(function () {
