@@ -5,6 +5,7 @@ namespace App\Http\Controllers\V1\Private;
 use App\Http\Controllers\Controller;
 use App\Models\Layanan;
 use App\Models\Pasien;
+use App\Models\Pembayaran;
 use App\Models\RekamMedis;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -73,6 +74,18 @@ class DokterPasienController extends Controller
         $rekam_medis->jenis_penyakit = $request->jenis_penyakit;
         $rekam_medis->layanan()->sync($request->layanans);
         $rekam_medis->save();
-        return redirect()->route('dokter.pasien.updateRekamMedis', [$user->id, $rekamMedisId]);
+
+        $pembayaran = new Pembayaran();
+        $pembayaran->user_id = $user->id;
+        $pembayaran->rekam_medis_id = $rekamMedisId;
+
+        $totalBayar = 0;
+        foreach ($rekam_medis->layanan as $layanan) {
+            $totalBayar += $layanan->harga_layanan;
+        }
+        $pembayaran->total_bayar = $totalBayar;
+        $pembayaran->status_bayar = null;
+        $pembayaran->save();
+        return redirect()->route('dokter.pasien.rekam_medis', [$user->id, $rekamMedisId]);
     }
 }

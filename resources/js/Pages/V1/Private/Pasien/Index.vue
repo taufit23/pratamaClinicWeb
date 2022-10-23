@@ -46,7 +46,7 @@ const form = useForm({
                             autofocus
                         ></TextInput>
                     </div>
-                    <PrimaryButton class="mx-2 py-3">Cari</PrimaryButton>
+                    <PrimaryButton class="py-3 mx-2">Cari</PrimaryButton>
                 </form>
             </div>
         </div>
@@ -88,6 +88,16 @@ const form = useForm({
                             route('admin.pasien.lupa_password', pasien.user.id)
                         "
                         >Forgot password</SuccessButton
+                    >
+                    <SuccessButton
+                        class="mx-1"
+                        :href="
+                            route(
+                                'admin.pasien.addMedicalRecord',
+                                pasien.user.id
+                            )
+                        "
+                        >Tambah kunjungan</SuccessButton
                     >
                 </td>
             </tr>

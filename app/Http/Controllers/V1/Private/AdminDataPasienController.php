@@ -108,7 +108,7 @@ class AdminDataPasienController extends Controller
     }
     public function showMedicalRecord(User $user, RekamMedis $rekamMedis)
     {
-        return Inertia::render('V1/Private/Pasien/ShowRekamMedis', [
+        return Inertia::render('V1/Private/Admin/RekamMedis/Show', [
             'user' => $user,
             'rekam_medis' => $rekamMedis,
             'pasien' => Pasien::where('user_id', $user->id)->first(),

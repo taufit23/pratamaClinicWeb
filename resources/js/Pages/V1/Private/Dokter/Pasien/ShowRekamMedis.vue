@@ -14,6 +14,7 @@ const props = defineProps({
 const form = useForm({
     cari: "",
 });
+console.log(props.rekam_medis);
 </script>
 <template>
     <AuthenticatedLayout
@@ -28,10 +29,10 @@ const form = useForm({
         <section class="text-gray-600 body-font">
             <div class="container mx-auto">
                 <div
-                    class="flex flex-wrap w-full flex-col items-center text-center"
+                    class="flex flex-col flex-wrap items-center w-full text-center"
                 >
                     <h1
-                        class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900"
+                        class="mb-2 text-2xl font-medium text-gray-900 sm:text-3xl title-font"
                     >
                         Rekam Medis
                         <span class="text-yellow-600">{{ pasien.name }}</span>
@@ -42,20 +43,22 @@ const form = useForm({
                     </p>
                 </div>
                 <div class="flex flex-wrap">
-                    <div class="xl:w-1/3 md:w-1/2 p-4">
-                        <div class="border border-gray-200 p-6 rounded-lg bg-white">
+                    <div class="p-4 xl:w-1/3 md:w-1/2">
+                        <div
+                            class="p-6 bg-white border border-gray-200 rounded-lg"
+                        >
                             <div
-                                class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4"
+                                class="inline-flex items-center justify-center w-10 h-10 mb-4 text-indigo-500 bg-indigo-100 rounded-full"
                             >
                                 <CIcon :icon="icon.cilNotes" />
                             </div>
                             <h2
-                                class="text-lg text-gray-900 font-medium title-font mb-2"
+                                class="mb-2 text-lg font-medium text-gray-900 title-font"
                             >
-                                Keluhan : 
+                                Keluhan :
                             </h2>
                             <li
-                                class="leading-relaxed text-base"
+                                class="text-base leading-relaxed"
                                 v-for="keluhan in rekam_medis.keluhan"
                                 :key="keluhan"
                             >
@@ -63,20 +66,22 @@ const form = useForm({
                             </li>
                         </div>
                     </div>
-                    <div class="xl:w-1/3 md:w-1/2 p-4">
-                        <div class="border border-gray-200 p-6 rounded-lg bg-white">
+                    <div class="p-4 xl:w-1/3 md:w-1/2">
+                        <div
+                            class="p-6 bg-white border border-gray-200 rounded-lg"
+                        >
                             <div
-                                class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4"
+                                class="inline-flex items-center justify-center w-10 h-10 mb-4 text-indigo-500 bg-indigo-100 rounded-full"
                             >
                                 <CIcon :icon="icon.cilVector" />
                             </div>
                             <h2
-                                class="text-lg text-gray-900 font-medium title-font mb-2"
+                                class="mb-2 text-lg font-medium text-gray-900 title-font"
                             >
-                            Diagnosa : 
+                                Diagnosa :
                             </h2>
                             <li
-                                class="leading-relaxed text-base"
+                                class="text-base leading-relaxed"
                                 v-for="diagnosa in rekam_medis.diagnosa"
                                 :key="diagnosa"
                             >
@@ -84,31 +89,45 @@ const form = useForm({
                             </li>
                         </div>
                     </div>
-                    <div class="xl:w-1/3 md:w-1/2 p-4">
-                        <div class="border border-gray-200 p-6 rounded-lg bg-white">
+                    <div class="p-4 xl:w-1/3 md:w-1/2">
+                        <div
+                            class="p-6 bg-white border border-gray-200 rounded-lg"
+                        >
                             <div
-                                class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-4"
+                                class="inline-flex items-center justify-center w-10 h-10 mb-4 text-indigo-500 bg-indigo-100 rounded-full"
                             >
-                            <CIcon :icon="icon.cilMoodVeryBad" />
+                                <CIcon :icon="icon.cilMoodVeryBad" />
+                            </div>
+                            <h2
+                                class="mb-2 text-lg font-medium text-gray-900 title-font"
+                            >
+                                Penyakit :
+                            </h2>
+                            <li
+                                class="text-base leading-relaxed"
+                                v-for="jenis_penyakit in rekam_medis.jenis_penyakit"
+                                :key="jenis_penyakit"
+                            >
+                                {{ jenis_penyakit }}
+                            </li>
                         </div>
-                        <h2
-                            class="text-lg text-gray-900 font-medium title-font mb-2"
-                        >
-                        Penyakit : 
-                        </h2>
-                        <li
-                            class="leading-relaxed text-base"
-                            v-for="jenis_penyakit in rekam_medis.jenis_penyakit"
-                            :key="jenis_penyakit"
-                        >
-                            {{ jenis_penyakit }}
-                        </li>
                     </div>
-                    </div>
-                    <SuccessButton :href="route('dokter.pasien.show', user.id)" class="flex mx-auto mt-1 text-white bg-indigo-500 border-0 py-3  focus:outline-none hover:bg-indigo-600 rounded text-lg">
+                    <SuccessButton
+                        :href="route('dokter.pasien.show', user.id)"
+                        class="flex py-3 mx-auto mt-1 text-lg text-white bg-indigo-500 border-0 rounded focus:outline-none hover:bg-indigo-600"
+                    >
                         Kembali
                     </SuccessButton>
-                    <SuccessButton :href="route('dokter.pasien.editRekamMedis',[user.id, rekam_medis.id])" v-if="rekam_medis.dokter == null" class="flex mx-auto mt-1 text-white bg-indigo-500 border-0 py-3 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+                    <SuccessButton
+                        :href="
+                            route('dokter.pasien.editRekamMedis', [
+                                user.id,
+                                rekam_medis.id,
+                            ])
+                        "
+                        v-if="rekam_medis.dokter_id == null"
+                        class="flex py-3 mx-auto mt-1 text-lg text-white bg-indigo-500 border-0 rounded focus:outline-none hover:bg-indigo-600"
+                    >
                         Layani
                     </SuccessButton>
                 </div>
