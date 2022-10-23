@@ -1,17 +1,23 @@
-<script setup>
-
-</script>
+<script setup></script>
 <template>
-    <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-        <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
-            href="/">
-            Klinik Pratama
-        </a>
-        <button
-            class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
-            type="button" >
-            <!-- onclick="toggleNavbar('example-collapse-navbar')" -->
-            <i class="text-white fas fa-bars"></i>
-        </button>
+    <div
+        class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
+    >
+        <div class="flex items-center relative">
+            <a
+                class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
+                href="/"
+            >
+                <img
+                    src="img\LOGOKLINIKPRATAMAUP.jpg"
+                    class="w-10 rounded-full border border-gray-100 shadow-sm"
+                    alt=""
+                />
+            </a>
+            <span
+                class="text-xl font-bold leading-relaxed inline-block ml-0 py-2 whitespace-nowrap uppercase text-white"
+                >Klinik Pratama</span
+            >
+        </div>
     </div>
 </template>

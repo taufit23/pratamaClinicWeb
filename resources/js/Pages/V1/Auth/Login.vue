@@ -29,20 +29,20 @@
                             </div>
                             <hr class="mt-2 border-gray-400  border-b-1" />
                         </div>
-                        <div class="flex-auto px-4 py-10 pt-0 lg:px-10">
+                        <div class="flex-auto px-4 py-4 pt-0 lg:px-10">
                             <form @submit.prevent="form.post(route('login.store'), { onSuccess: () => form.reset() })">
                                 <div class="flex flex-wrap mb-6 -mx-3">
                                     <div class="w-full px-3 mb-6 md:w-1/1 md:mb-0">
                                         <PublicInputText :label="'Username'" :type="'text'"
                                             :placeholder="'Ex : Alzikri007'" v-model="form.username"></PublicInputText>
-                                            <InputError :message="form.errors.username" class="mt-1" />
+                                        <InputError :message="form.errors.username" class="mt-1" />
                                     </div>
                                 </div>
                                 <div class="flex flex-wrap mb-6 -mx-3">
                                     <div class="w-full px-3 mb-6 md:w-1/1 md:mb-0">
                                         <PublicInputText :label="'Password'" :type="'password'"
                                             :placeholder="'Ex : **********'" v-model="form.password"></PublicInputText>
-                                            <InputError :message="form.errors.password" class="mt-1" />
+                                        <InputError :message="form.errors.password" class="mt-1" />
                                     </div>
                                 </div>
                                 <div class="mt-6 text-center">

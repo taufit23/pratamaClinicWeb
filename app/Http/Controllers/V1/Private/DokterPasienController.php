@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\V1\Private;
 
 use App\Http\Controllers\Controller;
+use App\Models\Layanan;
 use App\Models\Pasien;
 use App\Models\RekamMedis;
 use App\Models\User;
@@ -52,11 +53,26 @@ class DokterPasienController extends Controller
         return Inertia::render('V1/Private/Dokter/Pasien/EditRekamMedis', [
             'user' => $user,
             'rekam_medis' => RekamMedis::findOrFail($rekamMedisId),
-            'pasien' => Pasien::where('user_id', $user->id)->first()
+            'pasien' => Pasien::where('user_id', $user->id)->first(),
+            'layanans' => Layanan::all()
         ]);
     }
     public function updateRekamMedis(User $user, $rekamMedisId, Request $request)
     {
-        dd($request);
+        $request->validate([
+            'tanggal_periksa' => 'required|date',
+            'keluhans' => 'required|array',
+            'diagnosas' => 'required|array',
+            'jenis_penyakit' => 'required|array',
+            'layanans' => 'required|array',
+        ]);
+        $rekam_medis = RekamMedis::findOrFail($rekamMedisId);
+        $rekam_medis->dokter_id = auth()->user()->dokter->id;
+        $rekam_medis->keluhan = $request->keluhans;
+        $rekam_medis->diagnosa = $request->diagnosas;
+        $rekam_medis->jenis_penyakit = $request->jenis_penyakit;
+        $rekam_medis->layanan()->sync($request->layanans);
+        $rekam_medis->save();
+        return redirect()->route('dokter.pasien.updateRekamMedis', [$user->id, $rekamMedisId]);
     }
 }

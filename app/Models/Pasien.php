@@ -14,4 +14,8 @@ class Pasien extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function rekamMedis()
+    {
+        return $this->hasMany(RekamMedis::class);
+    }
 }

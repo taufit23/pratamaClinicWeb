@@ -14,12 +14,11 @@ class AdminDataDokterController extends Controller
 {
     public function index(Request $request)
     {
-        
         if ($request->has('cari')) {
             return Inertia::render('V1/Private/DataDokter/Index', [
                 'dokters' => Dokter::with('user')->where('name', 'LIKE', '%' . $request->cari . '%')->get(),
             ]);
-        }else{
+        } else {
             return Inertia::render('V1/Private/DataDokter/Index', [
                 'dokters' => Dokter::with('user')->get(),
             ]);
@@ -71,13 +70,13 @@ class AdminDataDokterController extends Controller
         $dokter->save();
         return redirect()->route('admin.dokter.index');
     }
-    public function lupa_password (User $user)
+    public function lupa_password(User $user)
     {
         return Inertia::render('V1/Private/DataDokter/LupaPassword', [
             'user' => $user,
         ]);
     }
-    public function post_new_password (User $user, Request $request)
+    public function post_new_password(User $user, Request $request)
     {
         $request->validate([
             'password' => 'required|string|max:255|confirmed',

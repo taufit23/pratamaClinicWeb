@@ -100,10 +100,19 @@ class AdminDataPasienController extends Controller
         ]);
         $rekam_medis = RekamMedis::create([
             'user_id' => $user->id,
+            'pasien_id' => $user->pasien->id,
             'tanggal_periksa' => $request->tanggal_periksa,
             'keluhan' => $request->keluhans
         ]);
         return redirect()->route('admin.pasien.show', $user->id);
     }
-    
+    public function showMedicalRecord(User $user, RekamMedis $rekamMedis)
+    {
+        return Inertia::render('V1/Private/Pasien/ShowRekamMedis', [
+            'user' => $user,
+            'rekam_medis' => $rekamMedis,
+            'pasien' => Pasien::where('user_id', $user->id)->first(),
+            'layanans' => $rekamMedis['layanan']
+        ]);
+    }
 }

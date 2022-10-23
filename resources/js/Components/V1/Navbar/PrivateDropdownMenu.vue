@@ -53,13 +53,15 @@
         <div ref="popoverDropdownRef"
             class="z-50 float-left py-2 mt-1 text-base text-left list-none bg-white rounded shadow-lg"
             v-bind:class="{ hidden: !dropdownPopoverShow, block: dropdownPopoverShow }" style="min-width: 12rem">
-            <DropdownLink :href="route('profile.index')" :active="route().current('profile.index')" v-if="$page.props.auth.user.role == 'pasien'">
+            <DropdownLink :href="route('profile.index')" :active="route().current('profile.index')"
+                v-if="$page.props.auth.user.role == 'pasien'">
                 Profile
             </DropdownLink>
-            <DropdownLink :href="route('admin.profile.index')" :active="route().current('admin.profile.index')" v-if="$page.props.auth.user.role == 'admin'">
+            <DropdownLink :href="route('admin.profile.index')" :active="route().current('admin.profile.index')"
+                v-if="$page.props.auth.user.role == 'admin'">
                 Profile
             </DropdownLink>
-            <div class="h-0 my-2 border border-solid border-blueGray-100" />
+            <div class="h-0 my-1 border border-solid border-blueGray-100" />
             <DropdownLink :href="route('logout.store')" :active="route().current('logout.store')" medhod="post">
                 LogOut
             </DropdownLink>

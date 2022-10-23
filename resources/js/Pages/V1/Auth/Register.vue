@@ -38,7 +38,7 @@
                                 </div>
                                 <hr class="mt-2 border-gray-400  border-b-1" />
                             </div>
-                            <div class="flex-auto px-4 py-10 pt-0 lg:px-10">
+                            <div class="flex-auto px-4 py-4 pt-0 lg:px-10">
                                 <form
                                     @submit.prevent="form.post(route('register.store'), { onSuccess: () => form.reset() })">
                                     <div class="flex flex-wrap mb-3 -mx-3">

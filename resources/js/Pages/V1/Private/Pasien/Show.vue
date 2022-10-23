@@ -125,17 +125,16 @@ const form = useForm({
                             :href="
                                 route('admin.pasien.addMedicalRecord', user.id)
                             "
-                            >Tambah Kunjungan</SuccessButton
+                        >
+                            Tambah Kunjungan</SuccessButton
                         >
                     </div>
 
-                    <div class="container flex justify-center mx-auto my-2">
+                    <div class="container flex justify-center mx-auto my-1">
                         <div class="flex flex-col">
                             <div class="w-full">
                                 <div class="border-b border-gray-200 shadow">
-                                    <table
-                                        class="divide-y divide-gray-300 table-fixed"
-                                    >
+                                    <table class="w-full table-fixed">
                                         <thead class="bg-gray-50">
                                             <tr>
                                                 <th
@@ -156,25 +155,12 @@ const form = useForm({
                                                 <th
                                                     class="px-6 py-2 text-xs text-gray-500"
                                                 >
-                                                    Dignosa
-                                                </th>
-                                                <th
-                                                    class="px-6 py-2 text-xs text-gray-500"
-                                                >
-                                                    Jenis penyakit
-                                                </th>
-                                                <th
-                                                    class="px-6 py-2 text-xs text-gray-500"
-                                                >
                                                     Aksi
                                                 </th>
                                             </tr>
                                         </thead>
-                                        <tbody
-                                            class="bg-white divide-y divide-gray-300"
-                                        >
+                                        <tbody>
                                             <tr
-                                                class=""
                                                 v-for="rekam_medis in rekam_mediss"
                                                 :key="rekam_medis.id"
                                             >
@@ -182,24 +168,33 @@ const form = useForm({
                                                     <div
                                                         class="text-sm text-gray-900"
                                                     >
-                                                        <p v-if="rekam_medis.dokter != null">
+                                                        <p
+                                                            v-if="
+                                                                rekam_medis.dokter !=
+                                                                null
+                                                            "
+                                                        >
                                                             {{
-                                                                rekam_medis.dokter
-                                                                    .name
+                                                                rekam_medis
+                                                                    .dokter.name
                                                             }}
                                                         </p>
-                                                        <p class="text-red-700" v-else>Dokter belum melayani</p>
+                                                        <p
+                                                            class="text-red-700"
+                                                            v-else
+                                                        >
+                                                            Dokter belum
+                                                            melayani
+                                                        </p>
                                                     </div>
                                                 </td>
                                                 <td class="px-6 py-4">
                                                     <div
                                                         class="text-sm text-gray-500"
                                                         v-for="keluh in rekam_medis.keluhan"
-                                                        :key="keluh" >
-                                                        {{
-                                                            keluh
-                                                        }}
-                                                    
+                                                        :key="keluh"
+                                                    >
+                                                        {{ keluh }}
                                                     </div>
                                                 </td>
                                                 <td
@@ -209,35 +204,18 @@ const form = useForm({
                                                         rekam_medis.tanggal_periksa
                                                     }}
                                                 </td>
-                                                <td
-                                                    class="px-6 py-4 text-sm text-gray-500"
-                                                >
-                                                    <ul>
-                                                        <li
-                                                            v-for="diag in rekam_medis.diagnosa"
-                                                            :key="diag"
-                                                        >
-                                                            {{ diag.title }}
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td
-                                                    class="px-6 py-4 text-sm text-gray-500"
-                                                >
-                                                    {{
-                                                        rekam_medis.jenis_penyakit
-                                                    }}
-                                                </td>
                                                 <td class="px-6 py-4">
-                                                    <a
-                                                        href="#"
-                                                        class="px-4 py-1 mx-1 text-sm text-indigo-600 bg-indigo-200 rounded-full"
-                                                        >Edit</a
-                                                    >
-                                                    <a
-                                                        href="#"
-                                                        class="px-4 py-1 mx-1 text-sm text-red-400 bg-red-200 rounded-full"
-                                                        >Delete</a
+                                                    <SuccessButton
+                                                        :href="
+                                                            route(
+                                                                'admin.pasien.showMedicalRecord',
+                                                                [
+                                                                    user.id,
+                                                                    rekam_medis.id,
+                                                                ]
+                                                            )
+                                                        "
+                                                        >Detail</SuccessButton
                                                     >
                                                 </td>
                                             </tr>

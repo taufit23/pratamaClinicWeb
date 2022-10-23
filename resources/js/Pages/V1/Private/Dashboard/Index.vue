@@ -9,7 +9,7 @@
 </script>
 <template>
     <AuthenticatedLayout :href="route('dashboard.index')" text="Dashboard">
-        <div class="flex flex-wrap my-2">
+        <div class="flex flex-wrap my-1">
             <div class="w-full px-4 lg:w-6/12 xl:w-3/12">
                 <div class="relative flex flex-col min-w-0 mb-6 break-words bg-white rounded shadow-lg xl:mb-0">
                     <div class="flex-auto p-4">
@@ -133,7 +133,7 @@
                 </div>
             </div>
         </div>
-        <div class="flex flex-wrap my-2">
+        <div class="flex flex-wrap my-1">
             <div class="w-full px-4 lg:w-6/12 xl:w-3/12">
                 <div class="relative flex flex-col min-w-0 mb-6 break-words bg-white rounded shadow-lg xl:mb-0">
                     <div class="flex-auto p-4">

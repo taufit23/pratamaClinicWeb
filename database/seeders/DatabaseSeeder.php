@@ -3,7 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Layanan;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,9 +19,14 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        DB::table('layanans')->insert([
+            'nama_layanan' => 'Surat Keterangan Sehat (KIR)',
+            'harga_layanan' => '20.000'
+            ]);
+
+        DB::table('layanans')->insert([
+            'nama_layanan' => 'Tindakan Injeksi',
+            'harga_layanan' => '15.000'
+            ]);
     }
 }
