@@ -21,7 +21,6 @@ class AdminProfileController extends Controller
     }
     public function update(Request $request)
     {
-        // dd($request);
         $admin = Admin::findOrFail(auth()->user()->admin->id);
         $request->validate([
             'name' => 'required|string|max:255',

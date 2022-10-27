@@ -10,14 +10,6 @@ use Laravel\Sanctum\HasApiTokens;
 class RekamMedis extends Model
 {
     protected $guarded = [];
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-    public function dokter()
-    {
-        return $this->belongsTo(Dokter::class);
-    }
     protected function keluhan(): Attribute
     {
         return Attribute::make(
@@ -39,6 +31,14 @@ class RekamMedis extends Model
             set: fn ($value) => json_encode($value),
         );
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function dokter()
+    {
+        return $this->belongsTo(Dokter::class);
+    }
     public function layanan()
     {
         return $this->belongsToMany(Layanan::class);
@@ -46,5 +46,9 @@ class RekamMedis extends Model
     public function pasien()
     {
         return $this->belongsTo(Pasien::class);
+    }
+    public function pembayaran()
+    {
+        return $this->belongsTo(Pembayaran::class);
     }
 }

@@ -15,14 +15,16 @@ const form = useForm({
 </script>
 <template>
     <AuthenticatedLayout
-        :href="route('admin.rekamMedis.index')"
+        :href="route('pasien.rekam_medis.index')"
         text="Data rekam medis"
     >
         <div class="container flex justify-center mx-auto">
             <div class="flex flex-col">
                 <form
                     class="flex items-center w-full my-3"
-                    @submit.prevent="form.get(route('admin.rekamMedis.index'))"
+                    @submit.prevent="
+                        form.get(route('pasien.rekam_medis.index'))
+                    "
                 >
                     <div class="relative w-full">
                         <div
@@ -37,7 +39,7 @@ const form = useForm({
                         <TextInput
                             v-model="form.cari"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Cari berdasarkan nama pasien / Tanggal kunjungan"
+                            placeholder="Cari berdasarkan nama dokter / Tanggal kunjungan"
                             autofocus
                         ></TextInput>
                     </div>
@@ -49,13 +51,13 @@ const form = useForm({
                             <thead class="bg-gray-50">
                                 <tr>
                                     <th class="px-6 py-2 text-xs text-gray-500">
-                                        Pasien
+                                        Dokter
                                     </th>
                                     <th class="px-6 py-2 text-xs text-gray-500">
                                         Tanggal Kunjungan
                                     </th>
                                     <th class="px-6 py-2 text-xs text-gray-500">
-                                        Nama dokter
+                                        Total tagihan
                                     </th>
 
                                     <th class="px-6 py-2 text-xs text-gray-500">
@@ -69,15 +71,6 @@ const form = useForm({
                                     v-for="record in rekam_medis"
                                     :key="record.id"
                                 >
-                                    <td class="px-6 py-4 text-sm text-gray-500">
-                                        {{ record.pasien.name }}
-                                    </td>
-
-                                    <td class="px-6 py-4">
-                                        <div class="text-sm text-gray-500">
-                                            {{ record.tanggal_periksa }}
-                                        </div>
-                                    </td>
                                     <td class="px-6 py-4">
                                         <div
                                             class="text-sm text-gray-900"
@@ -92,16 +85,26 @@ const form = useForm({
                                             Dokter belum melayani
                                         </div>
                                     </td>
+                                    <td class="px-6 py-4">
+                                        <div class="text-sm text-gray-500">
+                                            {{ record.tanggal_periksa }}
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">
+                                        {{ record.pasien.name }}
+                                    </td>
+
                                     <td class="px-6 py-4 text-sm text-gray-500">
                                         <SuccessButton
                                             class="mx-1"
                                             :href="
                                                 route(
-                                                    'admin.pasien.showMedicalRecord',
-                                                    [record.user.id, record.id]
+                                                    'pasien.rekam_medis.show',
+                                                    record.id
                                                 )
                                             "
-                                            >Detail</SuccessButton
+                                        >
+                                            Detail</SuccessButton
                                         >
                                     </td>
                                 </tr>

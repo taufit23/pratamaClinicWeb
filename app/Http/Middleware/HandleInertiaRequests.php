@@ -2,8 +2,12 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Middleware;
+use Illuminate\Support\Facades\Cache as FacadesCache;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -59,7 +63,7 @@ class HandleInertiaRequests extends Middleware
                             [
                                 'id' => $request->user()->admin->id,
                                 'name' => $request->user()->admin->name,
-                            ]:null,
+                            ] : null,
                             'dokter' => $request->user()->role == 'dokter' ?
                             [
                                 'id' => $request->user()->dokter->id,
@@ -67,7 +71,8 @@ class HandleInertiaRequests extends Middleware
                                 'nip' => $request->user()->dokter->nip,
                                 'alamat' => $request->user()->dokter->alamat,
                                 'bidang' => $request->user()->dokter->bidang,
-                            ]:null,
+                            ] : null,
+                            'users_online_sean' => UserActivity::class
                         ]
                         : null,
                 ];

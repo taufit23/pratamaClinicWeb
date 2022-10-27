@@ -30,16 +30,18 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::prefix('private')->group(function () {
         // global private
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
-        // logout
         Route::post('logout', [LogoutController::class, 'store'])->name('logout.store');
         // pasien
         Route::prefix('pasien')->group(function () {
+            // profile
             Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
             Route::get('profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
             Route::put('profile/update', [ProfileController::class, 'update'])->name('profile.update');
             Route::get('profile/ubah-password', [ProfileController::class, 'ubah_password'])->name('profile.ubah_password');
             Route::put('profile/update-password', [ProfileController::class, 'update_password'])->name('profile.update_password');
-            Route::get('rekam-medis', [RekamMedisController::class, 'index'])->name('rekam_medis.index');
+            // rekam medis
+            Route::get('rekam-medis', [RekamMedisController::class, 'index'])->name('pasien.rekam_medis.index');
+            Route::get('{rekamMedis}/rekam-medis', [RekamMedisController::class, 'show'])->name('pasien.rekam_medis.show');
         });
         // admin
         Route::prefix('admin')->group(function () {
@@ -62,6 +64,9 @@ Route::middleware('auth', 'verified')->group(function () {
 
             // medical record
             Route::get('rekam-medis', [AdminRekamMedisController::class, 'index'])->name('admin.rekamMedis.index');
+            Route::get('{user}/{rekamMedis}/rekam-medis/pembayaran', [AdminRekamMedisController::class, 'pembayaran'])->name('admin.rekamMedis.pembayaran');
+            Route::get('{user}/{rekamMedis}/rekam-medis/pembayaran-lunas', [AdminRekamMedisController::class, 'pembayaran_lunas'])->name('admin.rekamMedis.pembayaran_lunas');
+
             Route::get('{user}/data-pasien/add-medical-record', [AdminDataPasienController::class, 'addMedicalRecord'])->name('admin.pasien.addMedicalRecord');
             Route::post('{user}/data-pasien/add-medical-record', [AdminDataPasienController::class, 'storeMedicalRecord'])->name('admin.pasien.storeMedicalRecord');
             Route::get('{user}/data-pasien/{rekam_medis}/medical-record', [AdminDataPasienController::class, 'showMedicalRecord'])->name('admin.pasien.showMedicalRecord');

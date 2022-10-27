@@ -73,7 +73,6 @@ class DokterPasienController extends Controller
         $rekam_medis->diagnosa = $request->diagnosas;
         $rekam_medis->jenis_penyakit = $request->jenis_penyakit;
         $rekam_medis->layanan()->sync($request->layanans);
-        $rekam_medis->save();
 
         $pembayaran = new Pembayaran();
         $pembayaran->user_id = $user->id;
@@ -86,6 +85,8 @@ class DokterPasienController extends Controller
         $pembayaran->total_bayar = $totalBayar;
         $pembayaran->status_bayar = null;
         $pembayaran->save();
+        $rekam_medis->pembayaran_id = $pembayaran->id;
+        $rekam_medis->save();
         return redirect()->route('dokter.pasien.rekam_medis', [$user->id, $rekamMedisId]);
     }
 }

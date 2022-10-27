@@ -4,6 +4,7 @@ namespace App\Http\Controllers\V1\Private;
 
 use App\Http\Controllers\Controller;
 use App\Models\Pasien;
+use App\Models\Pembayaran;
 use App\Models\RekamMedis;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -112,7 +113,8 @@ class AdminDataPasienController extends Controller
             'user' => $user,
             'rekam_medis' => $rekamMedis,
             'pasien' => Pasien::where('user_id', $user->id)->first(),
-            'layanans' => $rekamMedis['layanan']
+            'layanans' => $rekamMedis['layanan'],
+            'pembayaran' => Pembayaran::where('rekam_medis_id', $rekamMedis->id)->first()
         ]);
     }
 }

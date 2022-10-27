@@ -33,7 +33,7 @@ class AdminDataDokterController extends Controller
         $user = User::create([
             'username' => $request->username,
             'role' => 'dokter',
-            'password' => Hash::make('KlinikPratama01'),
+            'password' => Hash::make('klinikpratama'),
         ]);
         $dokter = Dokter::create([
             'user_id' => $user->id,

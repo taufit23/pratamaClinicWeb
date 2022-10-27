@@ -31,7 +31,6 @@ class AdminDataController extends Controller
     }
     public function store(Request $request)
     {
-        dd($request);
         $request->validate([
             'username' => 'required|string|max:255|unique:users,username',
             'name' => 'required|string|max:255',

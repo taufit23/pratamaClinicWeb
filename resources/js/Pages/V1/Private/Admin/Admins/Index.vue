@@ -20,17 +20,15 @@ const form = useForm({
     >
         <div class="container flex justify-center mx-auto">
             <div class="flex flex-col">
-                <div
-                    class="flex items-baseline w-auto h-auto space-x-1 space-y-1 justify-left"
-                >
-                    <div class="flex-auto order-none w-1/4 h-auto item">
+                <div class="flex w-auto h-auto my-2 space-x-1 justify-left">
+                    <div class="flex-auto order-none w-1/4 h-auto pt-2 item">
                         <SuccessButton :href="route('admin.admins.create')"
                             >Tambah</SuccessButton
                         >
                     </div>
                     <div class="w-1/1">
                         <form
-                            class="flex items-center w-full my-3"
+                            class="flex items-center w-full"
                             @submit.prevent="
                                 form.get(route('admin.admins.index'))
                             "
@@ -52,7 +50,7 @@ const form = useForm({
                                     autofocus
                                 ></TextInput>
                             </div>
-                            <PrimaryButton class="mx-2 py-3"
+                            <PrimaryButton class="py-3 mx-2"
                                 >Cari</PrimaryButton
                             >
                         </form>

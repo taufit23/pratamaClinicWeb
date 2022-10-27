@@ -41,7 +41,7 @@ const form = useForm({
                                placeholder="Cari berdasarkan nama pasien"
                                autofocus></TextInput>
                 </div>
-                <PrimaryButton class="mx-2 py-3">Cari</PrimaryButton>
+                <PrimaryButton class="py-3 mx-2">Cari</PrimaryButton>
             </form>
         </div>
         <table class="w-full table-fixed">
@@ -50,7 +50,6 @@ const form = useForm({
                 <th class="px-6 pt-6 pb-4">Nama lengkap</th>
                 <th class="px-6 pt-6 pb-4">Alamat</th>
                 <th class="px-6 pt-6 pb-4">Jenis kelamin</th>
-                <th class="px-6 pt-6 pb-4">Aksi</th>
             </tr>
             <tr class="hover:bg-gray-100 focus-within:bg-gray-100"
                 v-for="pasien in pasiens"
@@ -58,16 +57,15 @@ const form = useForm({
                 <td class="px-6 pt-3 pb-2 text-yellow-900">
                     <Link class=""
                           :href="route('dokter.pasien.show', pasien.user.id)">
-                    {{ pasien . user . username }}
+                    {{ pasien.user.username }}
                     <CIcon :icon="icon.cilChevronRight"
                            size="sm"
                            class="inline-flex items-center justify-center w-5 h-5 mr-2 text-center" />
                     </Link>
                 </td>
-                <td class="px-6 pt-3 pb-2">{{ pasien . name }}</td>
-                <td class="px-6 pt-3 pb-2 text-truncate">{{ pasien . alamat }}</td>
-                <td class="px-6 pt-3 pb-2">{{ pasien . jenis_kelamin }}</td>
-                <td class="px-6 pt-3 pb-2">haha</td>
+                <td class="px-6 pt-3 pb-2">{{ pasien.name }}</td>
+                <td class="px-6 pt-3 pb-2 text-truncate">{{ pasien.alamat }}</td>
+                <td class="px-6 pt-3 pb-2">{{ pasien.jenis_kelamin }}</td>
             </tr>
             <tr v-if="pasiens.length === 0">
                 <td class="px-6 py-4 border-t"

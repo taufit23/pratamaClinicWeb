@@ -59,8 +59,8 @@ import DropdownLink from "@/Components/DropdownLink.vue";
                         {{ $page.props.auth.user.role }}
                     </PrivateSideLink>
                     <PrivateSideLink
-                        :href="route('rekam_medis.index')"
-                        :active="route().current('rekam_medis.index')"
+                        :href="route('pasien.rekam_medis.index')"
+                        :active="route().current('pasien.rekam_medis.index')"
                     >
                         <CIcon
                             :icon="icon.cilMedicalCross"

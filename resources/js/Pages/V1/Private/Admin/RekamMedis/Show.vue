@@ -11,6 +11,7 @@ const props = defineProps({
     rekam_medis: Object,
     pasien: Object,
     layanans: Object,
+    pembayaran: Object,
 });
 
 const form = useForm({
@@ -144,11 +145,30 @@ for (let i = 0; i < props.layanans.length; i++)
                                                                 </div>
                                                             </td>
                                                         </tr>
+                                                        <tr class="font-extrabold text-black whitespace-nowrap">
+                                                            <td class="px-6 py-4 text-sm">
+                                                                Status bayar
+                                                            </td>
+                                                            <td class="px-6 py-4">
+                                                                <div class="text-sm text-gray-900"
+                                                                     v-if="pembayaran.status_bayar == null">
+                                                                    Belum bayar
+                                                                </div>
+                                                                <div class="text-sm text-gray-900"
+                                                                     v-else>
+                                                                    Lunas
+                                                                </div>
+                                                            </td>
+                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
                                         </div>
                                     </div>
+                                    <SuccessButton v-if="pembayaran.status_bayar == null"
+                                                   :href="route('admin.rekamMedis.pembayaran_lunas', [user.id, rekam_medis.id])">
+                                        Tandai sudah lunas</SuccessButton>
+
                                 </div>
                             </h2>
                         </div>

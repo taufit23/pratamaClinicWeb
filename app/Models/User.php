@@ -10,7 +10,9 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens;
+    use HasFactory;
+    use Notifiable;
 
     protected $guarded = [];
 
@@ -47,5 +49,9 @@ class User extends Authenticatable
     public function rekam_medis()
     {
         return $this->hasMany(RekamMedis::class);
+    }
+    public function pembayaran()
+    {
+        return $this->hasMany(Pembayaran::class);
     }
 }
