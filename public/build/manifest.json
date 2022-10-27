@@ -1,6 +1,6 @@
 {
   "resources/js/app.js": {
-    "file": "assets/app.430957d2.js",
+    "file": "assets/app.d01356e3.js",
     "src": "resources/js/app.js",
     "isEntry": true,
     "dynamicImports": [
@@ -11,107 +11,908 @@
       "resources/js/Pages/Auth/ResetPassword.vue",
       "resources/js/Pages/Auth/VerifyEmail.vue",
       "resources/js/Pages/Dashboard.vue",
+      "resources/js/Pages/V1/Auth/Login.vue",
+      "resources/js/Pages/V1/Auth/Register.vue",
+      "resources/js/Pages/V1/Private/Admin/Admins/Create.vue",
+      "resources/js/Pages/V1/Private/Admin/Admins/Index.vue",
+      "resources/js/Pages/V1/Private/Admin/Admins/LupaPassword.vue",
+      "resources/js/Pages/V1/Private/Admin/RekamMedis/Index.vue",
+      "resources/js/Pages/V1/Private/Admin/RekamMedis/Show.vue",
+      "resources/js/Pages/V1/Private/Dashboard/DashboardAdmin.vue",
+      "resources/js/Pages/V1/Private/Dashboard/DashboardDokter.vue",
+      "resources/js/Pages/V1/Private/Dashboard/DashboardPasien.vue",
+      "resources/js/Pages/V1/Private/DataDokter/Create.vue",
+      "resources/js/Pages/V1/Private/DataDokter/Edit.vue",
+      "resources/js/Pages/V1/Private/DataDokter/Index.vue",
+      "resources/js/Pages/V1/Private/DataDokter/LupaPassword.vue",
+      "resources/js/Pages/V1/Private/Dokter/Pasien/EditRekamMedis.vue",
+      "resources/js/Pages/V1/Private/Dokter/Pasien/Index.vue",
+      "resources/js/Pages/V1/Private/Dokter/Pasien/Show.vue",
+      "resources/js/Pages/V1/Private/Dokter/Pasien/ShowRekamMedis.vue",
+      "resources/js/Pages/V1/Private/Dokter/RekamMedis/Index.vue",
+      "resources/js/Pages/V1/Private/Layanan/Create.vue",
+      "resources/js/Pages/V1/Private/Layanan/Edit.vue",
+      "resources/js/Pages/V1/Private/Layanan/Index.vue",
+      "resources/js/Pages/V1/Private/Pasien/AddMedicalRecord.vue",
+      "resources/js/Pages/V1/Private/Pasien/Create.vue",
+      "resources/js/Pages/V1/Private/Pasien/Index.vue",
+      "resources/js/Pages/V1/Private/Pasien/LupaPassword.vue",
+      "resources/js/Pages/V1/Private/Pasien/RekamMedis/Index.vue",
+      "resources/js/Pages/V1/Private/Pasien/RekamMedis/Show.vue",
+      "resources/js/Pages/V1/Private/Pasien/Show.vue",
+      "resources/js/Pages/V1/Private/Pasien/ShowRekamMedis.vue",
+      "resources/js/Pages/V1/Private/Profile/AdminEdit.vue",
+      "resources/js/Pages/V1/Private/Profile/Component/H1Name.vue",
+      "resources/js/Pages/V1/Private/Profile/Component/PAlamat.vue",
+      "resources/js/Pages/V1/Private/Profile/DokterEdit.vue",
+      "resources/js/Pages/V1/Private/Profile/Edit.vue",
+      "resources/js/Pages/V1/Private/Profile/Index.vue",
+      "resources/js/Pages/V1/Private/Profile/UbahPassword.vue",
+      "resources/js/Pages/V1/Private/RekamMedis/Index.vue",
+      "resources/js/Pages/V1/Public/Home/Component/Footer.vue",
+      "resources/js/Pages/V1/Public/Home/Index.vue",
       "resources/js/Pages/Welcome.vue"
     ],
     "css": [
-      "assets/app.f31a18ec.css"
+      "assets/app.7dc63198.css"
     ]
   },
   "resources/js/Pages/Auth/ConfirmPassword.vue": {
-    "file": "assets/ConfirmPassword.dc85fb01.js",
+    "file": "assets/ConfirmPassword.0379557e.js",
     "src": "resources/js/Pages/Auth/ConfirmPassword.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_PrimaryButton.7f08ead0.js",
-      "_TextInput.928d12c1.js",
-      "_ApplicationLogo.77f465ea.js"
+      "_GuestLayout.502f334f.js",
+      "_InputError.3a08ebfc.js",
+      "_InputLabel.d024d3f0.js",
+      "_PrimaryButton.d2d32afa.js",
+      "_TextInput.a446cfc1.js"
     ]
   },
-  "_PrimaryButton.7f08ead0.js": {
-    "file": "assets/PrimaryButton.7f08ead0.js",
-    "imports": [
-      "_ApplicationLogo.77f465ea.js",
-      "resources/js/app.js"
-    ]
-  },
-  "_TextInput.928d12c1.js": {
-    "file": "assets/TextInput.928d12c1.js",
+  "_GuestLayout.502f334f.js": {
+    "file": "assets/GuestLayout.502f334f.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_ApplicationLogo.77f465ea.js": {
-    "file": "assets/ApplicationLogo.77f465ea.js",
+  "_InputError.3a08ebfc.js": {
+    "file": "assets/InputError.3a08ebfc.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_InputLabel.d024d3f0.js": {
+    "file": "assets/InputLabel.d024d3f0.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_PrimaryButton.d2d32afa.js": {
+    "file": "assets/PrimaryButton.d2d32afa.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_TextInput.a446cfc1.js": {
+    "file": "assets/TextInput.a446cfc1.js",
     "imports": [
       "resources/js/app.js"
     ]
   },
   "resources/js/Pages/Auth/ForgotPassword.vue": {
-    "file": "assets/ForgotPassword.739d6174.js",
+    "file": "assets/ForgotPassword.8603a851.js",
     "src": "resources/js/Pages/Auth/ForgotPassword.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_PrimaryButton.7f08ead0.js",
-      "_TextInput.928d12c1.js",
-      "_ApplicationLogo.77f465ea.js"
+      "_GuestLayout.502f334f.js",
+      "_InputError.3a08ebfc.js",
+      "_InputLabel.d024d3f0.js",
+      "_PrimaryButton.d2d32afa.js",
+      "_TextInput.a446cfc1.js"
     ]
   },
   "resources/js/Pages/Auth/Login.vue": {
-    "file": "assets/Login.a305748f.js",
+    "file": "assets/Login.b6b89df4.js",
     "src": "resources/js/Pages/Auth/Login.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_PrimaryButton.7f08ead0.js",
-      "_TextInput.928d12c1.js",
-      "_ApplicationLogo.77f465ea.js"
+      "_GuestLayout.502f334f.js",
+      "_InputError.3a08ebfc.js",
+      "_InputLabel.d024d3f0.js",
+      "_PrimaryButton.d2d32afa.js",
+      "_TextInput.a446cfc1.js"
     ]
   },
   "resources/js/Pages/Auth/Register.vue": {
-    "file": "assets/Register.7315eb9b.js",
+    "file": "assets/Register.699353a8.js",
     "src": "resources/js/Pages/Auth/Register.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_PrimaryButton.7f08ead0.js",
-      "_TextInput.928d12c1.js",
-      "_ApplicationLogo.77f465ea.js"
+      "_GuestLayout.502f334f.js",
+      "_InputError.3a08ebfc.js",
+      "_InputLabel.d024d3f0.js",
+      "_PrimaryButton.d2d32afa.js",
+      "_TextInput.a446cfc1.js"
     ]
   },
   "resources/js/Pages/Auth/ResetPassword.vue": {
-    "file": "assets/ResetPassword.b442e656.js",
+    "file": "assets/ResetPassword.fa56e230.js",
     "src": "resources/js/Pages/Auth/ResetPassword.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_PrimaryButton.7f08ead0.js",
-      "_TextInput.928d12c1.js",
-      "_ApplicationLogo.77f465ea.js"
+      "_GuestLayout.502f334f.js",
+      "_InputError.3a08ebfc.js",
+      "_InputLabel.d024d3f0.js",
+      "_PrimaryButton.d2d32afa.js",
+      "_TextInput.a446cfc1.js"
     ]
   },
   "resources/js/Pages/Auth/VerifyEmail.vue": {
-    "file": "assets/VerifyEmail.ee95640a.js",
+    "file": "assets/VerifyEmail.7d8b7b21.js",
     "src": "resources/js/Pages/Auth/VerifyEmail.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_PrimaryButton.7f08ead0.js",
-      "_ApplicationLogo.77f465ea.js"
+      "_GuestLayout.502f334f.js",
+      "_PrimaryButton.d2d32afa.js"
     ]
   },
   "resources/js/Pages/Dashboard.vue": {
-    "file": "assets/Dashboard.0d0e5823.js",
+    "file": "assets/Dashboard.c6880622.js",
     "src": "resources/js/Pages/Dashboard.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_ApplicationLogo.77f465ea.js",
+      "__plugin-vue_export-helper.cdc0426e.js",
       "resources/js/app.js"
     ]
   },
+  "__plugin-vue_export-helper.cdc0426e.js": {
+    "file": "assets/_plugin-vue_export-helper.cdc0426e.js"
+  },
+  "resources/js/Pages/V1/Auth/Login.vue": {
+    "file": "assets/Login.6ce78ce9.js",
+    "src": "resources/js/Pages/V1/Auth/Login.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_GuestLayout.15da882f.js",
+      "_AuthBackground.25bb61ba.js",
+      "_PublicInputText.55392db8.js",
+      "_InputError.3a08ebfc.js",
+      "_PrimaryButton.5f400a16.js",
+      "_NavLeftLink.2b1c518f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "_GuestLayout.15da882f.js": {
+    "file": "assets/GuestLayout.15da882f.js",
+    "imports": [
+      "_NavLeftLink.2b1c518f.js",
+      "__plugin-vue_export-helper.cdc0426e.js",
+      "resources/js/app.js"
+    ]
+  },
+  "_AuthBackground.25bb61ba.js": {
+    "file": "assets/AuthBackground.25bb61ba.js",
+    "imports": [
+      "__plugin-vue_export-helper.cdc0426e.js",
+      "resources/js/app.js"
+    ]
+  },
+  "_PublicInputText.55392db8.js": {
+    "file": "assets/PublicInputText.55392db8.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_PrimaryButton.5f400a16.js": {
+    "file": "assets/PrimaryButton.5f400a16.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_NavLeftLink.2b1c518f.js": {
+    "file": "assets/NavLeftLink.2b1c518f.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/Pages/V1/Auth/Register.vue": {
+    "file": "assets/Register.da18953f.js",
+    "src": "resources/js/Pages/V1/Auth/Register.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_GuestLayout.15da882f.js",
+      "_AuthBackground.25bb61ba.js",
+      "_PublicInputText.55392db8.js",
+      "_InputError.3a08ebfc.js",
+      "_PrimaryButton.5f400a16.js",
+      "_NavLeftLink.2b1c518f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Admin/Admins/Create.vue": {
+    "file": "assets/Create.83540908.js",
+    "src": "resources/js/Pages/V1/Private/Admin/Admins/Create.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_AuthenticatedLayout.358931e7.js",
+      "_PublicInputText.55392db8.js",
+      "_InputError.3a08ebfc.js",
+      "_PrimaryButton.5f400a16.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_index.es.a8b2b918.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "_AuthenticatedLayout.358931e7.js": {
+    "file": "assets/AuthenticatedLayout.358931e7.js",
+    "imports": [
+      "_NavLeftLink.2b1c518f.js",
+      "resources/js/app.js",
+      "_index.es.a8b2b918.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "_index.es.a8b2b918.js": {
+    "file": "assets/index.es.a8b2b918.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_cib-twitter.8a3d22db.js": {
+    "file": "assets/cib-twitter.8a3d22db.js"
+  },
+  "_cil-caret-right.c95fbe62.js": {
+    "file": "assets/cil-caret-right.c95fbe62.js"
+  },
+  "_cil-location-pin.6971a42f.js": {
+    "file": "assets/cil-location-pin.6971a42f.js"
+  },
+  "resources/js/Pages/V1/Private/Admin/Admins/Index.vue": {
+    "file": "assets/Index.aa4d4036.js",
+    "src": "resources/js/Pages/V1/Private/Admin/Admins/Index.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_AuthenticatedLayout.358931e7.js",
+      "_SuccessButton.6fe5d2f8.js",
+      "_index.es.a8b2b918.js",
+      "_PrimaryButton.d2d32afa.js",
+      "_TextInput.a446cfc1.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "_SuccessButton.6fe5d2f8.js": {
+    "file": "assets/SuccessButton.6fe5d2f8.js",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Admin/Admins/LupaPassword.vue": {
+    "file": "assets/LupaPassword.54db9a5f.js",
+    "src": "resources/js/Pages/V1/Private/Admin/Admins/LupaPassword.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_AuthenticatedLayout.358931e7.js",
+      "_PublicInputText.55392db8.js",
+      "_InputError.3a08ebfc.js",
+      "_PrimaryButton.5f400a16.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_index.es.a8b2b918.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Admin/RekamMedis/Index.vue": {
+    "file": "assets/Index.b0dcfebd.js",
+    "src": "resources/js/Pages/V1/Private/Admin/RekamMedis/Index.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_AuthenticatedLayout.358931e7.js",
+      "_SuccessButton.6fe5d2f8.js",
+      "_index.es.a8b2b918.js",
+      "_PrimaryButton.d2d32afa.js",
+      "_TextInput.a446cfc1.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Admin/RekamMedis/Show.vue": {
+    "file": "assets/Show.1d915c5c.js",
+    "src": "resources/js/Pages/V1/Private/Admin/RekamMedis/Show.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_AuthenticatedLayout.358931e7.js",
+      "_SuccessButton.6fe5d2f8.js",
+      "resources/js/app.js",
+      "_index.es.a8b2b918.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Dashboard/DashboardAdmin.vue": {
+    "file": "assets/DashboardAdmin.e232f670.js",
+    "src": "resources/js/Pages/V1/Private/Dashboard/DashboardAdmin.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_AuthenticatedLayout.358931e7.js",
+      "_index.es.a8b2b918.js",
+      "resources/js/app.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Dashboard/DashboardDokter.vue": {
+    "file": "assets/DashboardDokter.c8827c98.js",
+    "src": "resources/js/Pages/V1/Private/Dashboard/DashboardDokter.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_AuthenticatedLayout.358931e7.js",
+      "_index.es.a8b2b918.js",
+      "resources/js/app.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Dashboard/DashboardPasien.vue": {
+    "file": "assets/DashboardPasien.818a3b44.js",
+    "src": "resources/js/Pages/V1/Private/Dashboard/DashboardPasien.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_AuthenticatedLayout.358931e7.js",
+      "_index.es.a8b2b918.js",
+      "resources/js/app.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/DataDokter/Create.vue": {
+    "file": "assets/Create.a45dc154.js",
+    "src": "resources/js/Pages/V1/Private/DataDokter/Create.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_AuthenticatedLayout.358931e7.js",
+      "_PublicInputText.55392db8.js",
+      "_InputError.3a08ebfc.js",
+      "_PrimaryButton.5f400a16.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_index.es.a8b2b918.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/DataDokter/Edit.vue": {
+    "file": "assets/Edit.da8410e1.js",
+    "src": "resources/js/Pages/V1/Private/DataDokter/Edit.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_AuthenticatedLayout.358931e7.js",
+      "_PublicInputText.55392db8.js",
+      "_InputError.3a08ebfc.js",
+      "_PrimaryButton.5f400a16.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_index.es.a8b2b918.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/DataDokter/Index.vue": {
+    "file": "assets/Index.67693f7f.js",
+    "src": "resources/js/Pages/V1/Private/DataDokter/Index.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_AuthenticatedLayout.358931e7.js",
+      "_SuccessButton.6fe5d2f8.js",
+      "_index.es.a8b2b918.js",
+      "_PrimaryButton.d2d32afa.js",
+      "_TextInput.a446cfc1.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/DataDokter/LupaPassword.vue": {
+    "file": "assets/LupaPassword.548dac6e.js",
+    "src": "resources/js/Pages/V1/Private/DataDokter/LupaPassword.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_AuthenticatedLayout.358931e7.js",
+      "_PublicInputText.55392db8.js",
+      "_InputError.3a08ebfc.js",
+      "_PrimaryButton.5f400a16.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_index.es.a8b2b918.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Dokter/Pasien/EditRekamMedis.vue": {
+    "file": "assets/EditRekamMedis.da7b3d40.js",
+    "src": "resources/js/Pages/V1/Private/Dokter/Pasien/EditRekamMedis.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_AuthenticatedLayout.358931e7.js",
+      "_InputError.3a08ebfc.js",
+      "_PrimaryButton.5f400a16.js",
+      "_TextInput.a446cfc1.js",
+      "_InputLabel.d024d3f0.js",
+      "_default.css_vue_type_style_index_0_src_true_lang.b6221d18.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_index.es.a8b2b918.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "_default.css_vue_type_style_index_0_src_true_lang.b6221d18.js": {
+    "file": "assets/default.css_vue_type_style_index_0_src_true_lang.b6221d18.js",
+    "imports": [
+      "resources/js/app.js"
+    ],
+    "css": [
+      "assets/default.de23dee8.css"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Dokter/Pasien/Index.vue": {
+    "file": "assets/Index.5623c9af.js",
+    "src": "resources/js/Pages/V1/Private/Dokter/Pasien/Index.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_AuthenticatedLayout.358931e7.js",
+      "_index.es.a8b2b918.js",
+      "_PrimaryButton.d2d32afa.js",
+      "_TextInput.a446cfc1.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Dokter/Pasien/Show.vue": {
+    "file": "assets/Show.8efe0e9c.js",
+    "src": "resources/js/Pages/V1/Private/Dokter/Pasien/Show.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_AuthenticatedLayout.358931e7.js",
+      "resources/js/app.js",
+      "_index.es.a8b2b918.js",
+      "_cil-location-pin.6971a42f.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Dokter/Pasien/ShowRekamMedis.vue": {
+    "file": "assets/ShowRekamMedis.7bf3f16a.js",
+    "src": "resources/js/Pages/V1/Private/Dokter/Pasien/ShowRekamMedis.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_AuthenticatedLayout.358931e7.js",
+      "_SuccessButton.6fe5d2f8.js",
+      "resources/js/app.js",
+      "_index.es.a8b2b918.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Dokter/RekamMedis/Index.vue": {
+    "file": "assets/Index.99d98a5e.js",
+    "src": "resources/js/Pages/V1/Private/Dokter/RekamMedis/Index.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_AuthenticatedLayout.358931e7.js",
+      "_SuccessButton.6fe5d2f8.js",
+      "_index.es.a8b2b918.js",
+      "_PrimaryButton.d2d32afa.js",
+      "_TextInput.a446cfc1.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Layanan/Create.vue": {
+    "file": "assets/Create.3785a102.js",
+    "src": "resources/js/Pages/V1/Private/Layanan/Create.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_AuthenticatedLayout.358931e7.js",
+      "_PublicInputText.55392db8.js",
+      "_InputError.3a08ebfc.js",
+      "_PrimaryButton.5f400a16.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_index.es.a8b2b918.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Layanan/Edit.vue": {
+    "file": "assets/Edit.dd96fe64.js",
+    "src": "resources/js/Pages/V1/Private/Layanan/Edit.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_AuthenticatedLayout.358931e7.js",
+      "_PublicInputText.55392db8.js",
+      "_InputError.3a08ebfc.js",
+      "_PrimaryButton.5f400a16.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_index.es.a8b2b918.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Layanan/Index.vue": {
+    "file": "assets/Index.02dfa597.js",
+    "src": "resources/js/Pages/V1/Private/Layanan/Index.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_AuthenticatedLayout.358931e7.js",
+      "_SuccessButton.6fe5d2f8.js",
+      "_index.es.a8b2b918.js",
+      "_PrimaryButton.d2d32afa.js",
+      "_TextInput.a446cfc1.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Pasien/AddMedicalRecord.vue": {
+    "file": "assets/AddMedicalRecord.39af95f8.js",
+    "src": "resources/js/Pages/V1/Private/Pasien/AddMedicalRecord.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_AuthenticatedLayout.358931e7.js",
+      "_InputError.3a08ebfc.js",
+      "_PrimaryButton.5f400a16.js",
+      "_TextInput.a446cfc1.js",
+      "_InputLabel.d024d3f0.js",
+      "_default.css_vue_type_style_index_0_src_true_lang.b6221d18.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_index.es.a8b2b918.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Pasien/Create.vue": {
+    "file": "assets/Create.3c5216ad.js",
+    "src": "resources/js/Pages/V1/Private/Pasien/Create.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_AuthenticatedLayout.358931e7.js",
+      "_PublicInputText.55392db8.js",
+      "_InputError.3a08ebfc.js",
+      "_PrimaryButton.5f400a16.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_index.es.a8b2b918.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Pasien/Index.vue": {
+    "file": "assets/Index.d44154c1.js",
+    "src": "resources/js/Pages/V1/Private/Pasien/Index.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_AuthenticatedLayout.358931e7.js",
+      "_SuccessButton.6fe5d2f8.js",
+      "_index.es.a8b2b918.js",
+      "_TextInput.a446cfc1.js",
+      "_PrimaryButton.d2d32afa.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Pasien/LupaPassword.vue": {
+    "file": "assets/LupaPassword.143b28f2.js",
+    "src": "resources/js/Pages/V1/Private/Pasien/LupaPassword.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_AuthenticatedLayout.358931e7.js",
+      "_PublicInputText.55392db8.js",
+      "_InputError.3a08ebfc.js",
+      "_PrimaryButton.5f400a16.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_index.es.a8b2b918.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Pasien/RekamMedis/Index.vue": {
+    "file": "assets/Index.35ce5785.js",
+    "src": "resources/js/Pages/V1/Private/Pasien/RekamMedis/Index.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_AuthenticatedLayout.358931e7.js",
+      "_SuccessButton.6fe5d2f8.js",
+      "_index.es.a8b2b918.js",
+      "_PrimaryButton.d2d32afa.js",
+      "_TextInput.a446cfc1.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Pasien/RekamMedis/Show.vue": {
+    "file": "assets/Show.4f181b97.js",
+    "src": "resources/js/Pages/V1/Private/Pasien/RekamMedis/Show.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_AuthenticatedLayout.358931e7.js",
+      "resources/js/app.js",
+      "_index.es.a8b2b918.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Pasien/Show.vue": {
+    "file": "assets/Show.12ec2f64.js",
+    "src": "resources/js/Pages/V1/Private/Pasien/Show.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_AuthenticatedLayout.358931e7.js",
+      "_SuccessButton.6fe5d2f8.js",
+      "resources/js/app.js",
+      "_index.es.a8b2b918.js",
+      "_cil-location-pin.6971a42f.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Pasien/ShowRekamMedis.vue": {
+    "file": "assets/ShowRekamMedis.8053bccf.js",
+    "src": "resources/js/Pages/V1/Private/Pasien/ShowRekamMedis.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_AuthenticatedLayout.358931e7.js",
+      "_SuccessButton.6fe5d2f8.js",
+      "resources/js/app.js",
+      "_index.es.a8b2b918.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Profile/AdminEdit.vue": {
+    "file": "assets/AdminEdit.5aac4b54.js",
+    "src": "resources/js/Pages/V1/Private/Profile/AdminEdit.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_AuthenticatedLayout.358931e7.js",
+      "_PublicInputText.55392db8.js",
+      "_InputError.3a08ebfc.js",
+      "_PrimaryButton.5f400a16.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_index.es.a8b2b918.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Profile/Component/H1Name.vue": {
+    "file": "assets/H1Name.3927e7da.js",
+    "src": "resources/js/Pages/V1/Private/Profile/Component/H1Name.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "__plugin-vue_export-helper.cdc0426e.js",
+      "resources/js/app.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Profile/Component/PAlamat.vue": {
+    "file": "assets/PAlamat.9f11af61.js",
+    "src": "resources/js/Pages/V1/Private/Profile/Component/PAlamat.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index.es.a8b2b918.js",
+      "resources/js/app.js",
+      "_cil-location-pin.6971a42f.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Profile/DokterEdit.vue": {
+    "file": "assets/DokterEdit.9f7db41c.js",
+    "src": "resources/js/Pages/V1/Private/Profile/DokterEdit.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_AuthenticatedLayout.358931e7.js",
+      "_PublicInputText.55392db8.js",
+      "_InputError.3a08ebfc.js",
+      "_PrimaryButton.5f400a16.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_index.es.a8b2b918.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Profile/Edit.vue": {
+    "file": "assets/Edit.915a955b.js",
+    "src": "resources/js/Pages/V1/Private/Profile/Edit.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_AuthenticatedLayout.358931e7.js",
+      "_PublicInputText.55392db8.js",
+      "_InputError.3a08ebfc.js",
+      "_PrimaryButton.5f400a16.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_index.es.a8b2b918.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Profile/Index.vue": {
+    "file": "assets/Index.bb4be3cf.js",
+    "src": "resources/js/Pages/V1/Private/Profile/Index.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_AuthenticatedLayout.358931e7.js",
+      "resources/js/Pages/V1/Private/Profile/Component/H1Name.vue",
+      "_index.es.a8b2b918.js",
+      "_SuccessButton.6fe5d2f8.js",
+      "resources/js/app.js",
+      "_cil-location-pin.6971a42f.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/Profile/UbahPassword.vue": {
+    "file": "assets/UbahPassword.09a2c086.js",
+    "src": "resources/js/Pages/V1/Private/Profile/UbahPassword.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_AuthenticatedLayout.358931e7.js",
+      "_PublicInputText.55392db8.js",
+      "_InputError.3a08ebfc.js",
+      "_PrimaryButton.5f400a16.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_index.es.a8b2b918.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Private/RekamMedis/Index.vue": {
+    "file": "assets/Index.850054d1.js",
+    "src": "resources/js/Pages/V1/Private/RekamMedis/Index.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_AuthenticatedLayout.358931e7.js",
+      "resources/js/app.js",
+      "_NavLeftLink.2b1c518f.js",
+      "_index.es.a8b2b918.js",
+      "_cib-twitter.8a3d22db.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_cil-location-pin.6971a42f.js",
+      "__plugin-vue_export-helper.cdc0426e.js"
+    ]
+  },
+  "resources/js/Pages/V1/Public/Home/Component/Footer.vue": {
+    "file": "assets/Footer.f677f46e.js",
+    "src": "resources/js/Pages/V1/Public/Home/Component/Footer.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js",
+      "_index.es.a8b2b918.js",
+      "_cib-twitter.8a3d22db.js"
+    ]
+  },
+  "resources/js/Pages/V1/Public/Home/Index.vue": {
+    "file": "assets/Index.97a8da6b.js",
+    "src": "resources/js/Pages/V1/Public/Home/Index.vue",
+    "isDynamicEntry": true,
+    "imports": [
+      "_GuestLayout.15da882f.js",
+      "_index.es.a8b2b918.js",
+      "resources/js/Pages/V1/Public/Home/Component/Footer.vue",
+      "resources/js/app.js",
+      "_cil-caret-right.c95fbe62.js",
+      "_NavLeftLink.2b1c518f.js",
+      "__plugin-vue_export-helper.cdc0426e.js",
+      "_cib-twitter.8a3d22db.js"
+    ]
+  },
   "resources/js/Pages/Welcome.vue": {
-    "file": "assets/Welcome.df1c9049.js",
+    "file": "assets/Welcome.03fbceb9.js",
     "src": "resources/js/Pages/Welcome.vue",
     "isDynamicEntry": true,
     "imports": [
@@ -119,7 +920,11 @@
     ]
   },
   "resources/js/app.css": {
-    "file": "assets/app.f31a18ec.css",
+    "file": "assets/app.7dc63198.css",
     "src": "resources/js/app.css"
+  },
+  "default.css": {
+    "file": "assets/default.de23dee8.css",
+    "src": "default.css"
   }
 }
