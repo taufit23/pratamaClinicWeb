@@ -23,6 +23,7 @@ class RekamMedisController extends Controller
     }
     public function show(RekamMedis $rekamMedis)
     {
+        // dd(RekamMedis::with('dokter', 'layanan', 'pembayaran')->where('id', $rekamMedis->id)->first());
         return Inertia::render('V1/Private/Pasien/RekamMedis/Show', [
             'rekam_medis' => RekamMedis::with('dokter', 'layanan', 'pembayaran')->where('id', $rekamMedis->id)->first()
         ]);

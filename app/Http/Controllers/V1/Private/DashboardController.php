@@ -20,6 +20,9 @@ class DashboardController extends Controller
                 'role' => auth()->user()->role,
                 'users_admin' => User::where('role', 'admin')->get(),
                 'users_dokter' => User::where('role', 'dokter')->get(),
+                'users_dokter_gigi' => User::where('role', 'dokter')->whereRelation('dokter', 'bidang', 'gigi')->get(),
+                'users_dokter_umum' => User::where('role', 'dokter')->whereRelation('dokter', 'bidang', 'umum')->get(),
+                'users_dokter_kandungan' => User::where('role', 'dokter')->whereRelation('dokter', 'bidang', 'kebidanan & kandungan')->get(),
                 'users_pasien' => User::where('role', 'pasien')->get(),
                 'rekam_medis_all' => RekamMedis::all(),
                 'pembayaran_lunas' => Pembayaran::where('status_bayar', 'lunas')->get(),
@@ -31,16 +34,17 @@ class DashboardController extends Controller
                 'users_admin' => User::where('role', 'admin')->get(),
                 'users_pasien' => User::where('role', 'pasien')->get(),
                 'rekam_medis_all' => RekamMedis::all(),
-                'my_rekam_medis' => RekamMedis::where('dokter_id', auth()->user()->id)->get(),
+                'my_rekam_medis' => RekamMedis::where('dokter_id', auth()->user()->dokter->id)->get(),
             ]);
         } else {
             return Inertia::render('V1/Private/Dashboard/DashboardPasien', [
                 'role' => auth()->user()->role,
                 'users_admin' => User::where('role', 'admin')->get(),
                 'users_dokter' => User::where('role', 'dokter')->get(),
-                'dokter_umum' => User::where('role', 'dokter')->get(),
-                'dokter_gigi' => User::where('role', 'dokter')->get(),
-                'rekam_medis' => RekamMedis::where('user_id', auth()->user()->id)->get(),
+                'dokter_gigi' => User::where('role', 'dokter')->whereRelation('dokter', 'bidang', 'gigi')->get(),
+                'dokter_umum' => User::where('role', 'dokter')->whereRelation('dokter', 'bidang', 'umum')->get(),
+                'dokter_kandungan' => User::where('role', 'dokter')->whereRelation('dokter', 'bidang', 'kebidanan & kandungan')->get(),
+                'my_rekam_medis' => RekamMedis::where('user_id', auth()->user()->id)->get(),
             ]);
         }
     }

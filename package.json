@@ -29,6 +29,7 @@
         "chart.js": "^3.9.1",
         "dayjs": "^1.11.5",
         "vue-chartjs": "^4.1.2",
+        "vue-money-format": "^1.2.4",
         "vue-multiselect": "^3.0.0-alpha.2"
     }
 }
