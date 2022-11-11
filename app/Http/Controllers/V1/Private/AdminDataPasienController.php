@@ -112,6 +112,7 @@ class AdminDataPasienController extends Controller
         return Inertia::render('V1/Private/Admin/RekamMedis/Show', [
             'user' => $user,
             'rekam_medis' => $rekamMedis,
+            'dokter' => $rekamMedis['dokter'],
             'pasien' => Pasien::where('user_id', $user->id)->first(),
             'layanans' => $rekamMedis['layanan'],
             'pembayaran' => Pembayaran::where('rekam_medis_id', $rekamMedis->id)->first()
