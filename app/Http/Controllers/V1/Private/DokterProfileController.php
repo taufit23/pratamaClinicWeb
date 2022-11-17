@@ -16,7 +16,7 @@ class DokterProfileController extends Controller
     }
     public function edit()
     {
-        return Inertia::render('V1/Private/Profile/DokterEdit' , [
+        return Inertia::render('V1/Private/Profile/DokterEdit', [
             'user' => auth()->user(),
             'dokter' => Dokter::findOrFail(auth()->user()->dokter->id)
         ]);
@@ -39,6 +39,10 @@ class DokterProfileController extends Controller
         $dokter->bidang = $request->bidang;
         $dokter->alamat = $request->alamat;
         $dokter->save();
-        return redirect()->route('dokter.profile.index');
+        return redirect()->route('dokter.profile.index')->with([
+            'toast' => [
+                'type' => 'success',
+                'message' => 'Data ' . $dokter->name . ' berhasil diubah'
+        ]]);
     }
 }

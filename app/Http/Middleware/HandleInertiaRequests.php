@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Middleware;
 use Illuminate\Support\Facades\Cache as FacadesCache;
+use Illuminate\Support\Facades\Session;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -76,6 +77,9 @@ class HandleInertiaRequests extends Middleware
                         ]
                         : null,
                 ];
+            },
+            'toast' => function () {
+                return Session::get('toast');
             },
         ]);
     }

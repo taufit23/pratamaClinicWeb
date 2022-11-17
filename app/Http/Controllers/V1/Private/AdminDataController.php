@@ -18,7 +18,11 @@ class AdminDataController extends Controller
         if ($request->has('cari')) {
             return Inertia::render('V1/Private/Admin/Admins/Index', [
                 'admins' => User::with('admin')->whereRelation('admin', 'name', 'LIKE', '%' . $request->cari . '%')->get()
-            ]);
+            ])->with([
+                'toast' => [
+                    'type' => 'success',
+                    'message' => 'Query =  ' . $request->cari
+            ]]);
         } else {
             return Inertia::render('V1/Private/Admin/Admins/Index', [
                 'admins' => User::with('admin')->where('role', 'admin')->get()
@@ -44,7 +48,11 @@ class AdminDataController extends Controller
         $admin->user_id = $user->id;
         $admin->name = $request->name;
         $admin->save();
-        return redirect()->route('admin.admins.index');
+        return redirect()->route('admin.admins.index')->with([
+            'toast' => [
+                'type' => 'success',
+                'message' => 'Admin' . $admin->name . 'ditambahkan'
+        ]]);
     }
     public function lupaPassword(User $user)
     {
@@ -59,13 +67,21 @@ class AdminDataController extends Controller
         ]);
         $user->password = Hash::make($request->password);
         $user->save();
-        return redirect()->route('admin.admins.index');
+        return redirect()->route('admin.admins.index')->with([
+            'toast' => [
+                'type' => 'success',
+                'message' => 'Password berhasil diubah'
+        ]]);
     }
     public function destroy(User $user)
     {
         $admin = $user['admin'];
         $admin->delete();
         $user->delete();
-        return redirect()->route('admin.admins.index');
+        return redirect()->route('admin.admins.index')->with([
+            'toast' => [
+                'type' => 'error',
+                'message' => 'Data '.$admin->name.' dihapus'
+        ]]);
     }
 }

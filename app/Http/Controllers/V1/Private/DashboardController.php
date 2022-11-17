@@ -6,9 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Pembayaran;
 use App\Models\RekamMedis;
 use App\Models\User;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
 use Inertia\Inertia;
 
 class DashboardController extends Controller

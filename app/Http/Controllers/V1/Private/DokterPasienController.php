@@ -20,7 +20,11 @@ class DokterPasienController extends Controller
                 'pasiens' => Pasien::with('user')
                     ->where('name', 'LIKE', '%' . $request->cari . '%')
                     ->get(),
-            ]);
+            ])->with([
+                'toast' => [
+                    'type' => 'success',
+                    'message' => 'Query ' . $request->cari
+            ]]);
         } else {
             return Inertia::render('V1/Private/Dokter/Pasien/Index', [
                 'pasiens' => Pasien::with('user')->get(),
@@ -87,6 +91,10 @@ class DokterPasienController extends Controller
         $pembayaran->save();
         $rekam_medis->pembayaran_id = $pembayaran->id;
         $rekam_medis->save();
-        return redirect()->route('dokter.pasien.rekam_medis', [$user->id, $rekamMedisId]);
+        return redirect()->route('dokter.pasien.rekam_medis', [$user->id, $rekamMedisId])->with([
+            'toast' => [
+                'type' => 'success',
+                'message' => 'Pasien ' . $user->pasien->name . 'dilayani'
+        ]]);
     }
 }

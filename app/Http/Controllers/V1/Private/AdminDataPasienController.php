@@ -21,7 +21,11 @@ class AdminDataPasienController extends Controller
                 'pasiens' => Pasien::with('user')
                     ->where('name', 'LIKE', '%' . $request->cari . '%')
                     ->get(),
-            ]);
+            ])->with([
+                'toast' => [
+                    'type' => 'success',
+                    'message' => 'Query = ' . $request->cari
+            ]]);
         } else {
             return Inertia::render('V1/Private/Pasien/Index', [
                 'pasiens' => Pasien::with('user')->get(),
@@ -47,7 +51,7 @@ class AdminDataPasienController extends Controller
             'name' => 'required|string|max:255',
             'username' => 'required|string|max:255|unique:users,username',
             'nik' => 'required|max:255|unique:pasiens,ktp',
-            'bpjs' => 'required|max:255|unique:pasiens,bpjs',
+            'bpjs' => 'max:255|unique:pasiens,bpjs',
             'no_hp' => 'required|max:255|unique:pasiens,no_hp',
             'jenis_kelamin' => 'required|max:255',
             'tanggal_lahir' => 'required|max:255',
@@ -69,7 +73,11 @@ class AdminDataPasienController extends Controller
             'tanggal_lahir' => $request->tanggal_lahir,
             'alamat' => $request->alamat,
         ]);
-        return redirect()->route('admin.pasien.index');
+        return redirect()->route('admin.pasien.index')->with([
+            'toast' => [
+                'type' => 'success',
+                'message' => 'Pasien ' . $pasien->name . ' berhasil didaftarkan'
+        ]]);
     }
     public function lupa_password(User $user, Request $request)
     {
@@ -84,7 +92,11 @@ class AdminDataPasienController extends Controller
         ]);
         $user->password = Hash::make($request->password);
         $user->save();
-        return redirect()->route('admin.pasien.index');
+        return redirect()->route('admin.pasien.index')->with([
+            'toast' => [
+                'type' => 'success',
+                'message' => 'Password pasien' . $user->username . ''
+        ]]);
     }
     public function addMedicalRecord(User $user)
     {
@@ -105,7 +117,11 @@ class AdminDataPasienController extends Controller
             'tanggal_periksa' => $request->tanggal_periksa,
             'keluhan' => $request->keluhans
         ]);
-        return redirect()->route('admin.pasien.show', $user->id);
+        return redirect()->route('admin.pasien.show', $user->id)->with([
+            'toast' => [
+                'type' => 'success',
+                'message' => 'Tambah Rekam medis '.$user->pasien->name.' berhasil'
+        ]]);
     }
     public function showMedicalRecord(User $user, RekamMedis $rekamMedis)
     {

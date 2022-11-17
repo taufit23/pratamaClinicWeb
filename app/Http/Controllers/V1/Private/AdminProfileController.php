@@ -28,6 +28,10 @@ class AdminProfileController extends Controller
         $admin->name = $request->name;
 
         $admin->save();
-        return redirect()->route('admin.profile.index');
+        return redirect()->route('admin.profile.index')->with([
+            'toast' => [
+                'type' => 'success',
+                'message' => 'Data '.$admin->name.' diubah'
+        ]]);
     }
 }

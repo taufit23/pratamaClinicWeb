@@ -25,7 +25,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'username' => 'required|string|max:255|unique:users,username',
             'nik' => 'required|max:255|unique:pasiens,ktp',
-            'bpjs' => 'required|max:255|unique:pasiens,bpjs',
+            'bpjs' => 'max:255|unique:pasiens,bpjs',
             'no_hp' => 'required|max:255|unique:pasiens,no_hp',
             'jenis_kelamin' => 'required|max:255',
             'tanggal_lahir' => 'required|max:255',

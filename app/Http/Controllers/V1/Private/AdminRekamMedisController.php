@@ -32,6 +32,10 @@ class AdminRekamMedisController extends Controller
         $pembayaran = Pembayaran::where('rekam_medis_id', $rekamMedis->id)->first();
         $pembayaran->status_bayar = 'lunas';
         $pembayaran->save();
-        return redirect()->route('admin.pasien.showMedicalRecord', [$user->id, $rekamMedis->id]);
+        return redirect()->route('admin.pasien.showMedicalRecord', [$user->id, $rekamMedis->id])->with([
+            'toast' => [
+                'type' => 'error',
+                'message' => 'Data pemmbayaran dilunasi'
+        ]]);
     }
 }

@@ -41,7 +41,11 @@ class ProfileController extends Controller
         $pasien->tanggal_lahir = $request->tanggal_lahir;
         $pasien->alamat = $request->alamat;
         $pasien->save();
-        return redirect()->route('profile.index');
+        return redirect()->route('profile.index')->with([
+            'toast' => [
+                'type' => 'success',
+                'message' => 'Data ' . $pasien->name . ' Berhasil diubah'
+        ]]);
     }
     public function ubah_password()
     {
@@ -56,10 +60,18 @@ class ProfileController extends Controller
         ]);
         #Match The Old Password
         if (!Hash::check($request->password_lama, auth()->user()->password)) {
-            return back()->with("error", "Old Password Doesn't match!");
+            return back()->with([
+                'toast' => [
+                    'type' => 'error',
+                    'message' => 'Password lama tidak salah'
+            ]]);
         }
         $user->password = Hash::make($request->password);
         $user->save();
-        return redirect()->route('profile.index');
+        return redirect()->route('profile.index')->with([
+            'toast' => [
+                'type' => 'success',
+                'message' => 'Update password berhasil'
+        ]]);
     }
 }

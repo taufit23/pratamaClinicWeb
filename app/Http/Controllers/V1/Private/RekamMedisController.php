@@ -14,7 +14,11 @@ class RekamMedisController extends Controller
         if ($request->has('cari')) {
             return Inertia::render('V1/Private/Pasien/RekamMedis/Index', [
                 'rekam_medis' => RekamMedis::with('user', 'dokter', 'layanan', 'pasien')->where('user_id', auth()->user()->id)->where('tanggal_periksa', 'LIKE', '%' . $request->cari . '%')->orWhereRelation('dokter', 'name', 'LIKE', '%' . $request->cari . '%')->get(),
-            ]);
+            ])->with([
+                'toast' => [
+                    'type' => 'success',
+                    'message' => 'Query = ' . $request->cari
+            ]]);
         } else {
             return Inertia::render('V1/Private/Pasien/RekamMedis/Index', [
                 'rekam_medis' => RekamMedis::with('user', 'dokter', 'layanan', 'pasien')->where('user_id', auth()->user()->id)->get(),

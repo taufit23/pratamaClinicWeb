@@ -17,7 +17,11 @@ class AdminDataDokterController extends Controller
         if ($request->has('cari')) {
             return Inertia::render('V1/Private/DataDokter/Index', [
                 'dokters' => Dokter::with('user')->where('name', 'LIKE', '%' . $request->cari . '%')->get(),
-            ]);
+            ])->with([
+                'toast' => [
+                    'type' => 'success',
+                    'message' => 'query = ' . $request->cari
+            ]]);
         } else {
             return Inertia::render('V1/Private/DataDokter/Index', [
                 'dokters' => Dokter::with('user')->get(),
@@ -42,7 +46,11 @@ class AdminDataDokterController extends Controller
             'bidang' => $request->bidang,
             'alamat' => $request->alamat,
         ]);
-        return redirect()->route('admin.dokter.index');
+        return redirect()->route('admin.dokter.index')->with([
+            'toast' => [
+                'type' => 'success',
+                'message' => 'Data dokter berhasil ditambahkan'
+        ]]);
     }
     public function edit(User $user)
     {
@@ -68,7 +76,11 @@ class AdminDataDokterController extends Controller
         $dokter->bidang = $request->bidang;
         $dokter->alamat = $request->alamat;
         $dokter->save();
-        return redirect()->route('admin.dokter.index');
+        return redirect()->route('admin.dokter.index')->with([
+            'toast' => [
+                'type' => 'success',
+                'message' => 'Data dokter' . $dokter->name . ' berhasil di Update'
+        ]]);
     }
     public function lupa_password(User $user)
     {
@@ -83,6 +95,10 @@ class AdminDataDokterController extends Controller
         ]);
         $user->password = Hash::make($request->password);
         $user->save();
-        return redirect()->route('admin.dokter.index');
+        return redirect()->route('admin.dokter.index')->with([
+            'toast' => [
+                'type' => 'success',
+                'message' => 'Password ' . $user->username . 'berhasil di update'
+        ]]);
     }
 }
