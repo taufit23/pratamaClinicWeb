@@ -207,6 +207,28 @@ import DropdownLink from "@/Components/DropdownLink.vue";
                         />
                         Data Admin's
                     </PrivateSideLink>
+                    <PrivateSideLink
+                        :href="route('admin.loogbook.index')"
+                        :active="route().current('admin.loogbook.index')"
+                    >
+                        <CIcon
+                            :icon="icon.cilMoney"
+                            size="sm"
+                            class="inline-flex items-center justify-center mr-2 text-center w-9 h-9"
+                        />
+                        Data keuangan
+                    </PrivateSideLink>
+                    <PrivateSideLink
+                        :href="route('admin.obat.index')"
+                        :active="route().current('admin.obat.index')"
+                    >
+                        <CIcon
+                            :icon="icon.cilLink"
+                            size="sm"
+                            class="inline-flex items-center justify-center mr-2 text-center w-9 h-9"
+                        />
+                        Data obat
+                    </PrivateSideLink>
                 </ul>
             </div>
         </div>

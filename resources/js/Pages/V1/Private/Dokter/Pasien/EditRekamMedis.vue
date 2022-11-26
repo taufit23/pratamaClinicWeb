@@ -13,6 +13,7 @@ const props = defineProps({
     pasien: Object,
     rekam_medis: Object,
     layanans: Object,
+    obat: Object,
 });
 const form = useForm({
     name: props.pasien.name,
@@ -22,132 +23,204 @@ const form = useForm({
     diagnosas: props.rekam_medis.diagnosa,
     jenis_penyakit: props.rekam_medis.kenis_penyakit,
     layanans: props.rekam_medis.layanan,
+    obat: props.obat.nama_obat,
+    total_hari: "",
+    konsumsi_harian: "",
 });
-const layanan = props.layanans.map((item) =>
-{
+const layanan = props.layanans.map((item) => {
     return {
         value: item.id,
         label: item.nama_layanan,
     };
 });
+const obats = props.obat.map((item) => {
+    return {
+        value: item.id,
+        label: item.nama_obat,
+    };
+});
 </script>
 <template>
-    <AuthenticatedLayout :href="route('admin.pasien.index')"
-                         text="Data Pasien">
-        <form @submit.prevent="
-            form.put(
-                route('dokter.pasien.updateRekamMedis', [
-                    user.id,
-                    rekam_medis.id,
-                ]),
-                {
-                    onSuccess: () => form.reset(),
-                }
-            )
-        ">
+    <AuthenticatedLayout :href="route('admin.pasien.index')" text="Data Pasien">
+        <form
+            @submit.prevent="
+                form.put(
+                    route('dokter.pasien.updateRekamMedis', [
+                        user.id,
+                        rekam_medis.id,
+                    ]),
+                    {
+                        onSuccess: () => form.reset(),
+                    }
+                )
+            "
+        >
             <div class="flex flex-wrap mb-3 -mx-3">
                 <div class="w-full px-3 mb-6 md:w-1/2 md:mb-0">
-                    <InputLabel for="name"
-                                value="Nama lengkap" />
-                    <TextInput id="name"
-                               type="name"
-                               class="block w-full px-4 py-1 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
-                               v-model="form.name"
-                               readonly />
-                    <InputError class="mt-2"
-                                :message="form.errors.name" />
+                    <InputLabel for="name" value="Nama lengkap" />
+                    <TextInput
+                        id="name"
+                        type="name"
+                        class="block w-full px-4 py-1 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
+                        v-model="form.name"
+                        readonly
+                    />
+                    <InputError class="mt-2" :message="form.errors.name" />
                 </div>
                 <div class="w-full px-3 md:w-1/2">
-                    <InputLabel for="username"
-                                value="Username" />
-                    <TextInput id="username"
-                               type="text"
-                               class="block w-full px-4 py-1 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
-                               v-model="form.username"
-                               readonly />
-                    <InputError class="mt-2"
-                                :message="form.errors.username" />
+                    <InputLabel for="username" value="Username" />
+                    <TextInput
+                        id="username"
+                        type="text"
+                        class="block w-full px-4 py-1 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
+                        v-model="form.username"
+                        readonly
+                    />
+                    <InputError class="mt-2" :message="form.errors.username" />
                 </div>
             </div>
             <div class="flex flex-wrap mb-3 -mx-3">
                 <div class="w-full px-3 mb-6 md:w-1/2 md:mb-0">
-                    <InputLabel for="tanggal_periksa"
-                                value="Tanggal periksa" />
-                    <TextInput id="tanggal_periksa"
-                               type="date"
-                               class="block w-full px-4 py-1 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
-                               v-model="form.tanggal_periksa"
-                               readonly />
-                    <InputError class="mt-2"
-                                :message="form.errors.tanggal_periksa" />
+                    <InputLabel for="tanggal_periksa" value="Tanggal periksa" />
+                    <TextInput
+                        id="tanggal_periksa"
+                        type="date"
+                        class="block w-full px-4 py-1 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
+                        v-model="form.tanggal_periksa"
+                        readonly
+                    />
+                    <InputError
+                        class="mt-2"
+                        :message="form.errors.tanggal_periksa"
+                    />
                 </div>
                 <div class="w-full px-3 md:w-1/2">
-                    <InputLabel for="keluhan"
-                                value="Keluhan" />
-                    <Multiselect id="keluhan"
-                                 v-model="form.keluhans"
-                                 mode="tags"
-                                 :close-on-select="false"
-                                 :searchable="true"
-                                 :create-option="true"
-                                 :options="form.keluhans" />
+                    <InputLabel for="keluhan" value="Keluhan" />
+                    <Multiselect
+                        id="keluhan"
+                        v-model="form.keluhans"
+                        mode="tags"
+                        :close-on-select="false"
+                        :searchable="true"
+                        :create-option="true"
+                        :options="form.keluhans"
+                    />
                 </div>
             </div>
             <div class="flex flex-wrap mb-3 -mx-3">
                 <div class="w-full px-3 mb-6 md:w-1/2 md:mb-0">
-                    <InputLabel for="diagnosas"
-                                value="Diagnosa keluhan" />
+                    <InputLabel for="diagnosas" value="Diagnosa keluhan" />
 
-                    <Multiselect placeholder="Ketik detail diagnosa & hit enter"
-                                 id="diagnosas"
-                                 v-model="form.diagnosas"
-                                 mode="tags"
-                                 :close-on-select="false"
-                                 :searchable="true"
-                                 :create-option="true"
-                                 :options="form.diagnosas" />
-                    <InputError class="mt-2"
-                                :message="form.errors.diagnosas" />
+                    <Multiselect
+                        placeholder="Ketik detail diagnosa & hit enter"
+                        id="diagnosas"
+                        v-model="form.diagnosas"
+                        mode="tags"
+                        :close-on-select="false"
+                        :searchable="true"
+                        :create-option="true"
+                        :options="form.diagnosas"
+                    />
+                    <InputError class="mt-2" :message="form.errors.diagnosas" />
                 </div>
                 <div class="w-full px-3 md:w-1/2">
-                    <InputLabel for="jenis_penyakit"
-                                value="Penyakit" />
-                    <Multiselect placeholder="Ketik nama penyakit & hit enter"
-                                 id="jenis_penyakit"
-                                 v-model="form.jenis_penyakit"
-                                 mode="tags"
-                                 :close-on-select="false"
-                                 :searchable="true"
-                                 :create-option="true"
-                                 :options="form.jenis_penyakit" />
-                    <InputError class="mt-2"
-                                :message="form.errors.jenis_penyakit" />
+                    <InputLabel for="jenis_penyakit" value="Penyakit" />
+                    <Multiselect
+                        placeholder="Ketik nama penyakit & hit enter"
+                        id="jenis_penyakit"
+                        v-model="form.jenis_penyakit"
+                        mode="tags"
+                        :close-on-select="false"
+                        :searchable="true"
+                        :create-option="true"
+                        :options="form.jenis_penyakit"
+                    />
+                    <InputError
+                        class="mt-2"
+                        :message="form.errors.jenis_penyakit"
+                    />
                 </div>
             </div>
             <div class="flex flex-wrap mb-3 -mx-3">
                 <div class="w-full px-3 mb-6 md:w-1/1 md:mb-0">
-                    <InputLabel for="layanans"
-                                value="Kegiatan pelayanan" />
+                    <InputLabel for="layanans" value="Kegiatan pelayanan" />
                     <div>
-                        <Multiselect placeholder="cari nama layanan & hit enter"
-                                     id="layanans"
-                                     v-model="form.layanans"
-                                     mode="tags"
-                                     :close-on-select="true"
-                                     :searchable="true"
-                                     :create-option="false"
-                                     :options="layanan" />
+                        <Multiselect
+                            placeholder="cari nama layanan & hit enter"
+                            id="layanans"
+                            v-model="form.layanans"
+                            mode="tags"
+                            :close-on-select="true"
+                            :searchable="true"
+                            :create-option="false"
+                            :options="layanan"
+                        />
                     </div>
-                    <InputError class="mt-2"
-                                :message="form.errors.layanans" />
+                    <InputError class="mt-2" :message="form.errors.layanans" />
                 </div>
             </div>
+
+            <div class="flex flex-wrap mb-3 -mx-3">
+                <div class="w-full px-3 mb-6 md:w-1/2 md:mb-0">
+                    <div>
+                        <InputLabel for="layanans" value="Obat" />
+                        <Multiselect
+                            placeholder="cari nama Obat & hit enter"
+                            id="resep_obat"
+                            v-model="form.obat"
+                            mode="tags"
+                            :close-on-select="true"
+                            :searchable="true"
+                            :create-option="false"
+                            :options="obats"
+                        />
+                    </div>
+                    <InputError class="mt-2" :message="form.errors.obat" />
+                </div>
+                <div class="w-full px-3 mb-6 md:w-1/2 md:mb-0">
+                    <div class="flex flex-wrap mb-3 -mx-3">
+                        <div class="w-full px-3 mb-6 md:w-1/2 md:mb-0">
+                            <InputLabel
+                                for="total_hari"
+                                value="Hari konsumsi obat"
+                            />
+                            <TextInput
+                                id="total_hari"
+                                type="number"
+                                class="block w-full px-4 py-1 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
+                                v-model="form.total_hari"
+                            />
+                            <InputError
+                                class="mt-2"
+                                :message="form.errors.total_hari"
+                            />
+                        </div>
+                        <div class="w-full px-3 mb-6 md:w-1/2 md:mb-0">
+                            <InputLabel
+                                for="konsumsi_harian"
+                                value="Konsumsi harian"
+                            />
+                            <TextInput
+                                id="konsumsi_harian"
+                                type="number"
+                                class="block w-full px-4 py-1 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
+                                v-model="form.konsumsi_harian"
+                            />
+                            <InputError
+                                class="mt-2"
+                                :message="form.errors.konsumsi_harian"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="mt-6 text-center">
-                <PrimaryButton :disabled="form.processing">Update</PrimaryButton>
+                <PrimaryButton :disabled="form.processing"
+                    >Update</PrimaryButton
+                >
             </div>
         </form>
     </AuthenticatedLayout>
 </template>
-<style src="@vueform/multiselect/themes/default.css">
-
-</style>
+<style src="@vueform/multiselect/themes/default.css"></style>

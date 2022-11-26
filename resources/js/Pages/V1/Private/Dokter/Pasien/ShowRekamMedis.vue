@@ -9,6 +9,8 @@ const props = defineProps({
     user: Object,
     rekam_medis: Object,
     pasien: Object,
+    resep_obat: Object,
+    layanans: Object,
 });
 
 const form = useForm({
@@ -111,6 +113,69 @@ console.log(props.rekam_medis);
                                 {{ jenis_penyakit }}
                             </li>
                         </div>
+                    </div>
+                    <div
+                        class="p-6 bg-white border border-gray-200 rounded-lg"
+                        v-if="rekam_medis.dokter_id != null"
+                    >
+                        <table class="divide-y divide-gray-300">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-2 text-xs text-gray-500">
+                                        Nama layanan
+                                    </th>
+                                    <th class="px-6 py-2 text-xs text-gray-500">
+                                        Nama obat
+                                    </th>
+                                    <th class="px-6 py-2 text-xs text-gray-500">
+                                        Konsumsi harian
+                                    </th>
+                                    <th class="px-6 py-2 text-xs text-gray-500">
+                                        Hari konsumsi
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-300">
+                                <tr
+                                    class="whitespace-nowrap"
+                                    v-for="layanan in props.layanans"
+                                    :key="layanan"
+                                >
+                                    <td class="px-6 py-4 text-sm text-gray-500">
+                                        {{ layanan.nama_layanan }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="text-sm text-gray-900">
+                                            Rp.
+                                            {{ layanan.harga_layanan }}
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr
+                                    class="whitespace-nowrap"
+                                    v-for="obat in props.resep_obat.obat"
+                                    :key="obat"
+                                >
+                                    <td
+                                        class="px-6 py-4 text-sm text-gray-500"
+                                    ></td>
+                                    <td
+                                        class="px-6 py-4 text-sm text-gray-500"
+                                    ></td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">
+                                        {{ obat.nama_obat }}
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">
+                                        {{ resep_obat.konsumsi_harian }}
+                                        x sehari
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">
+                                        {{ resep_obat.total_hari }}
+                                        Hari
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                     <SuccessButton
                         :href="route('dokter.pasien.show', user.id)"

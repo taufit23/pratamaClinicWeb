@@ -4,6 +4,7 @@ import Toast from "@/Components/V1/Toast.vue";
 import PrivateSidebar from "@/Components/V1/Sidebar/PrivateSidebar.vue";
 import { Link } from "@inertiajs/inertia-vue3";
 import PrivateDropdownMenu from "@/Components/V1/Navbar/PrivateDropdownMenu.vue";
+import Footer from "@/Components/V1/Footer.vue";
 
 const props = defineProps(["href", "text"]);
 </script>
@@ -40,6 +41,7 @@ const props = defineProps(["href", "text"]);
                     </div>
                 </div>
             </div>
+            <Footer></Footer>
             <Toast :toast="$page.props.toast"></Toast>
         </div>
     </div>

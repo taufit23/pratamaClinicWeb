@@ -12,16 +12,11 @@ return new class () extends Migration {
      */
     public function up()
     {
-        Schema::create('pasiens', function (Blueprint $table) {
+        Schema::create('obats', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->string('name');
-            $table->bigInteger('ktp');
-            $table->bigInteger('bpjs')->nullable();
-            $table->bigInteger('no_hp');
-            $table->string('jenis_kelamin');
-            $table->date('tanggal_lahir');
-            $table->text('alamat');
+            $table->string('nama_obat');
+            $table->bigInteger('stok_obat');
+            $table->bigInteger('harga_obat');
             $table->timestamps();
         });
     }
@@ -33,6 +28,6 @@ return new class () extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('pasiens');
+        Schema::dropIfExists('obats');
     }
 };

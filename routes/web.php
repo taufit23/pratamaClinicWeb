@@ -3,8 +3,10 @@
 use App\Http\Controllers\V1\Auth\LogoutController;
 use App\Http\Controllers\V1\Private\AdminDataController;
 use App\Http\Controllers\V1\Private\AdminDataDokterController;
+use App\Http\Controllers\V1\Private\AdminDataObatController;
 use App\Http\Controllers\V1\Private\AdminDataPasienController;
 use App\Http\Controllers\V1\Private\AdminLayananController;
+use App\Http\Controllers\V1\Private\AdminLoogbookController;
 use App\Http\Controllers\V1\Private\AdminProfileController;
 use App\Http\Controllers\V1\Private\AdminRekamMedisController;
 use App\Http\Controllers\V1\Private\DashboardController;
@@ -92,6 +94,15 @@ Route::middleware('auth', 'verified')->group(function () {
             Route::get('{user}/admin', [AdminDataController::class, 'lupaPassword'])->name('admin.admins.lupaPassword');
             Route::put('{user}/admin', [AdminDataController::class, 'storeLupaPassword'])->name('admin.admins.storeLupaPassword');
             Route::get('{user}/admin/destroy', [AdminDataController::class, 'destroy'])->name('admin.admins.destroy');
+
+            // loogbook keuangan
+            Route::get('loogbook', [AdminLoogbookController::class, 'index'])->name('admin.loogbook.index');
+            // data obat
+            Route::get('data-obat', [AdminDataObatController::class, 'index'])->name('admin.obat.index');
+            Route::get('data-obat-create', [AdminDataObatController::class, 'create'])->name('admin.obat.create');
+            Route::post('data-obat-create', [AdminDataObatController::class, 'store'])->name('admin.obat.store');
+            Route::get('{obat}/data-obat-edit', [AdminDataObatController::class, 'edit'])->name('admin.obat.edit');
+            Route::put('{obat}/data-obat-edit', [AdminDataObatController::class, 'update'])->name('admin.obat.update');
         });
         // dokter
         Route::prefix('dokter')->group(function () {

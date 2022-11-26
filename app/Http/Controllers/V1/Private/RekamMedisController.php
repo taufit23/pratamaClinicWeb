@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\V1\Private;
 
 use App\Http\Controllers\Controller;
+use App\Models\Pembayaran;
 use App\Models\RekamMedis;
+use App\Models\ResepObat;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -29,7 +31,9 @@ class RekamMedisController extends Controller
     {
         // dd(RekamMedis::with('dokter', 'layanan', 'pembayaran')->where('id', $rekamMedis->id)->first());
         return Inertia::render('V1/Private/Pasien/RekamMedis/Show', [
-            'rekam_medis' => RekamMedis::with('dokter', 'layanan', 'pembayaran')->where('id', $rekamMedis->id)->first()
+            'rekam_medis' => RekamMedis::with('dokter', 'layanan', 'pembayaran')->where('id', $rekamMedis->id)->first(),
+            'resep_obat' => ResepObat::with('obat')->where('rekam_medis_id', $rekamMedis->id)->first(),
+            'pembayaran' => Pembayaran::where('rekam_medis_id', $rekamMedis->id)->first()
         ]);
     }
 }

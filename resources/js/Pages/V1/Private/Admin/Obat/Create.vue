@@ -6,18 +6,16 @@ import { Head, Link, useForm } from "@inertiajs/inertia-vue3";
 import PrimaryButton from "@/Components/V1/Button/PrimaryButton.vue";
 
 const form = useForm({
-    nama_layanan: "",
-    harga_layanan: "",
+    nama_obat: "",
+    harga_obat: "",
+    stok_obat: "",
 });
 </script>
 <template>
-    <AuthenticatedLayout
-        :href="route('admin.layanan.index')"
-        :text="'Data Layanan'"
-    >
+    <AuthenticatedLayout :href="route('admin.obat.index')" :text="'Data Obat'">
         <form
             @submit.prevent="
-                form.post(route('admin.layanan.store'), {
+                form.post(route('admin.obat.store'), {
                     onSuccess: () => form.reset(),
                 })
             "
@@ -25,30 +23,40 @@ const form = useForm({
             <div class="flex flex-wrap mb-3 -mx-3">
                 <div class="w-full px-3 mb-6 md:w-1/2 md:mb-0">
                     <PublicInputText
-                        :label="'Nama layanan'"
+                        :label="'Nama obat'"
                         :type="'text'"
-                        :placeholder="'Ex : Pasang Infus Dewasa '"
-                        v-model="form.nama_layanan"
+                        :placeholder="'Ex : Paracetamol '"
+                        v-model="form.nama_obat"
                         autofocus
                     >
                     </PublicInputText>
-                    <InputError
-                        :message="form.errors.nama_layanan"
-                        class="mt-2"
-                    />
+                    <InputError :message="form.errors.nama_obat" class="mt-2" />
                 </div>
                 <div class="w-full px-3 md:w-1/2">
                     <PublicInputText
-                        :label="'Harga layanan'"
+                        :label="'Harga obat'"
                         :type="'number'"
-                        :placeholder="'Ex : 35000'"
-                        v-model="form.harga_layanan"
+                        :placeholder="'Ex : 3500'"
+                        v-model="form.harga_obat"
                     >
                     </PublicInputText>
                     <InputError
-                        :message="form.errors.harga_layanan"
+                        :message="form.errors.harga_obat"
                         class="mt-2"
                     />
+                </div>
+            </div>
+            <div class="flex flex-wrap mb-3 -mx-3">
+                <div class="w-full px-3 mb-6 md:w-1/2 md:mb-0">
+                    <PublicInputText
+                        :label="'Stok obat'"
+                        :type="'number'"
+                        :placeholder="'Ex : Paracetamol '"
+                        v-model="form.stok_obat"
+                        autofocus
+                    >
+                    </PublicInputText>
+                    <InputError :message="form.errors.stok_obat" class="mt-2" />
                 </div>
             </div>
             <div class="mt-6 text-center">

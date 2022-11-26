@@ -2,8 +2,8 @@
 
 ## Table of Contents
 
-- [tentang](#tentang)
-- [Usage](#usage)
+-   [tentang](#tentang)
+-   [Usage](#usage)
 
 ## Tentang <a name="tentang"></a>
 
@@ -17,19 +17,22 @@ Project dibuat dengan framework laravel 9 + inertia js + vue js + tailwindCss
 ```
 PHP 8.1.6 (cli)
 ```
+
 ```
 NodeJs v16.17.0
 ```
+
 ```
 Npm v16.17.0
 ```
+
 ```
 Laravel 9.1*
 ```
+
 ```
 Mysql
 ```
-
 
 ### Installing
 
@@ -65,7 +68,6 @@ Buat database di mysql
 pratamaclinicweb
 ```
 
-
 Generate Key laravel
 
 ```
@@ -95,13 +97,25 @@ Jalankan server laravel
 ```
 php artisan serve
 ```
+
 ## Usage <a name="usage"></a>
 
 Kunjungi menggukan browser
+
 ```
 http://localhost:8000/
 ```
+
 Or
+
 ```
 http://127.0.0.1:8000/
+```
+
+### last update
+
+pull form old project
+
+```
+git pull origin master
 ```

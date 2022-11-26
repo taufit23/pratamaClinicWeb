@@ -129,7 +129,7 @@ const props = defineProps({
         </div>
 
         <!-- about klinik -->
-        <div class="p-4 md:w-1/1">
+        <!-- <div class="p-4 md:w-1/1">
             <div
                 class="h-full overflow-hidden border-2 border-gray-200 rounded-lg border-opacity-60"
             >
@@ -294,6 +294,6 @@ const props = defineProps({
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </AuthenticatedLayout>
 </template>

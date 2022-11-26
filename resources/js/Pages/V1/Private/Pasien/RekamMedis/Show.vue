@@ -7,6 +7,8 @@ import * as icon from "@coreui/icons";
 
 const props = defineProps({
     rekam_medis: Object,
+    resep_obat: Object,
+    pembayaran: Object,
 });
 </script>
 <template>
@@ -156,13 +158,50 @@ const props = defineProps({
                                                                                 class="px-6 py-2 text-xs text-gray-500"
                                                                             >
                                                                                 Nama
-                                                                                kegiatan
+                                                                                layanan
                                                                             </th>
                                                                             <th
                                                                                 class="px-6 py-2 text-xs text-gray-500"
                                                                             >
                                                                                 Harga
-                                                                                kegiatan
+                                                                                layanan
+                                                                            </th>
+                                                                            <th
+                                                                                class="px-6 py-2 text-xs text-gray-500"
+                                                                            >
+                                                                                Nama
+                                                                                obat
+                                                                            </th>
+                                                                            <th
+                                                                                class="px-6 py-2 text-xs text-gray-500"
+                                                                            >
+                                                                                Harga
+                                                                                Obat
+                                                                            </th>
+                                                                            <th
+                                                                                class="px-6 py-2 text-xs text-gray-500"
+                                                                            >
+                                                                                Total
+                                                                                harga
+                                                                                Obat
+                                                                            </th>
+                                                                            <th
+                                                                                class="px-6 py-2 text-xs text-gray-500"
+                                                                            >
+                                                                                Konsumsi
+                                                                                harian
+                                                                            </th>
+                                                                            <th
+                                                                                class="px-6 py-2 text-xs text-gray-500"
+                                                                            >
+                                                                                Hari
+                                                                                konsumsi
+                                                                            </th>
+                                                                            <th
+                                                                                class="px-6 py-2 text-xs text-gray-500"
+                                                                            >
+                                                                                Stok
+                                                                                terpakai
                                                                             </th>
                                                                         </tr>
                                                                     </thead>
@@ -170,17 +209,19 @@ const props = defineProps({
                                                                         class="bg-white divide-y divide-gray-300"
                                                                     >
                                                                         <tr
-                                                                            v-for="pelayanan in rekam_medis.layanan"
-                                                                            :key="
-                                                                                pelayanan.id
-                                                                            "
                                                                             class="whitespace-nowrap"
+                                                                            v-for="layanan in props
+                                                                                .rekam_medis
+                                                                                .layanan"
+                                                                            :key="
+                                                                                layanan
+                                                                            "
                                                                         >
                                                                             <td
                                                                                 class="px-6 py-4 text-sm text-gray-500"
                                                                             >
                                                                                 {{
-                                                                                    pelayanan.nama_layanan
+                                                                                    layanan.nama_layanan
                                                                                 }}
                                                                             </td>
                                                                             <td
@@ -191,69 +232,119 @@ const props = defineProps({
                                                                                 >
                                                                                     Rp.
                                                                                     {{
-                                                                                        pelayanan.harga_layanan
+                                                                                        layanan.harga_layanan
                                                                                     }}
                                                                                 </div>
                                                                             </td>
                                                                         </tr>
                                                                         <tr
                                                                             class="whitespace-nowrap"
+                                                                            v-for="obat in props
+                                                                                .resep_obat
+                                                                                .obat"
+                                                                            :key="
+                                                                                obat
+                                                                            "
                                                                         >
                                                                             <td
                                                                                 class="px-6 py-4 text-sm text-gray-500"
+                                                                            ></td>
+                                                                            <td
+                                                                                class="px-6 py-4 text-sm text-gray-500"
+                                                                            ></td>
+                                                                            <td
+                                                                                class="px-6 py-4 text-sm text-gray-500"
+                                                                            >
+                                                                                {{
+                                                                                    obat.nama_obat
+                                                                                }}
+                                                                            </td>
+                                                                            <td
+                                                                                class="px-6 py-4 text-sm text-gray-500"
+                                                                            >
+                                                                                Rp.
+                                                                                {{
+                                                                                    obat.harga_obat
+                                                                                }}
+                                                                            </td>
+                                                                            <td
+                                                                                class="px-6 py-4 text-sm text-gray-500"
+                                                                            >
+                                                                                Rp.
+                                                                                {{
+                                                                                    obat.harga_obat *
+                                                                                    (resep_obat.total_hari *
+                                                                                        resep_obat.konsumsi_harian)
+                                                                                }}
+                                                                            </td>
+                                                                            <td
+                                                                                class="px-6 py-4 text-sm text-gray-500"
+                                                                            >
+                                                                                {{
+                                                                                    resep_obat.konsumsi_harian
+                                                                                }}
+                                                                                x
+                                                                                sehari
+                                                                            </td>
+                                                                            <td
+                                                                                class="px-6 py-4 text-sm text-gray-500"
+                                                                            >
+                                                                                {{
+                                                                                    resep_obat.total_hari
+                                                                                }}
+                                                                                Hari
+                                                                            </td>
+                                                                            <td
+                                                                                class="px-6 py-4 text-sm text-gray-500"
+                                                                            >
+                                                                                {{
+                                                                                    resep_obat.total_hari *
+                                                                                    resep_obat.konsumsi_harian
+                                                                                }}
+                                                                                butir
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr
+                                                                            class="whitespace-nowrap"
+                                                                        >
+                                                                            <td
+                                                                                colspan="7"
                                                                             >
                                                                                 Total
                                                                                 bayar
                                                                             </td>
-                                                                            <td
-                                                                                class="px-6 py-4"
-                                                                            >
-                                                                                <div
-                                                                                    class="text-sm text-gray-900"
-                                                                                >
-                                                                                    {{
-                                                                                        rekam_medis
-                                                                                            .pembayaran
-                                                                                            .total_bayar
-                                                                                    }}
-                                                                                </div>
+                                                                            <td>
+                                                                                Rp.
+                                                                                {{
+                                                                                    pembayaran.total_bayar
+                                                                                }}
                                                                             </td>
                                                                         </tr>
                                                                         <tr
                                                                             class="whitespace-nowrap"
                                                                         >
                                                                             <td
-                                                                                class="px-6 py-4 text-sm text-gray-500"
+                                                                                colspan="7"
                                                                             >
                                                                                 Status
                                                                                 bayar
                                                                             </td>
-                                                                            <td
-                                                                                class="px-6 py-4"
-                                                                            >
+                                                                            <td>
                                                                                 <div
+                                                                                    class="text-sm text-gray-900"
                                                                                     v-if="
-                                                                                        rekam_medis
-                                                                                            .pembayaran
-                                                                                            .status_bayar ==
+                                                                                        pembayaran.status_bayar ==
                                                                                         null
                                                                                     "
-                                                                                    class="text-sm text-gray-900"
                                                                                 >
                                                                                     Belum
                                                                                     bayar
                                                                                 </div>
                                                                                 <div
-                                                                                    v-if="
-                                                                                        rekam_medis
-                                                                                            .pembayaran
-                                                                                            .status_bayar ==
-                                                                                        'lunas'
-                                                                                    "
+                                                                                    v-else
                                                                                     class="text-sm text-gray-900"
                                                                                 >
-                                                                                    Sudah
-                                                                                    bayar
+                                                                                    Lunas
                                                                                 </div>
                                                                             </td>
                                                                         </tr>

@@ -13,6 +13,7 @@ const props = defineProps({
     pasien: Object,
     layanans: Object,
     pembayaran: Object,
+    resep_obat: Object,
 });
 
 const form = useForm({
@@ -145,118 +146,230 @@ for (let i = 0; i < props.layanans.length; i++) {
                                             <div
                                                 class="border-b border-gray-200 shadow"
                                             >
-                                                <table
-                                                    class="divide-y divide-gray-300"
+                                                <div
+                                                    class="flex flex-wrap mb-3 -mx-3"
                                                 >
-                                                    <thead class="bg-gray-50">
-                                                        <tr>
-                                                            <th
-                                                                class="px-6 py-2 text-xs text-gray-500"
-                                                            >
-                                                                Nama layanan
-                                                            </th>
-                                                            <th
-                                                                class="px-6 py-2 text-xs text-gray-500"
-                                                            >
-                                                                Harga
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody
-                                                        class="bg-white divide-y divide-gray-300"
+                                                    <div
+                                                        class="w-full px-3 mb-6 md:w-1/2 md:mb-0"
                                                     >
-                                                        <tr
-                                                            class="whitespace-nowrap"
-                                                            v-for="layanan in props.layanans"
-                                                            :key="layanan"
+                                                        <table
+                                                            class="divide-y divide-gray-300"
                                                         >
-                                                            <td
-                                                                class="px-6 py-4 text-sm text-gray-500"
+                                                            <thead
+                                                                class="bg-gray-50"
                                                             >
-                                                                {{
-                                                                    layanan.nama_layanan
-                                                                }}
-                                                            </td>
-                                                            <td
-                                                                class="px-6 py-4"
+                                                                <tr>
+                                                                    <th
+                                                                        class="px-6 py-2 text-xs text-gray-500"
+                                                                    >
+                                                                        Nama
+                                                                        layanan
+                                                                    </th>
+                                                                    <th
+                                                                        class="px-6 py-2 text-xs text-gray-500"
+                                                                    >
+                                                                        Harga
+                                                                        layanan
+                                                                    </th>
+                                                                    <th
+                                                                        class="px-6 py-2 text-xs text-gray-500"
+                                                                    >
+                                                                        Nama
+                                                                        obat
+                                                                    </th>
+                                                                    <th
+                                                                        class="px-6 py-2 text-xs text-gray-500"
+                                                                    >
+                                                                        Harga
+                                                                        Obat
+                                                                    </th>
+                                                                    <th
+                                                                        class="px-6 py-2 text-xs text-gray-500"
+                                                                    >
+                                                                        Total
+                                                                        harga
+                                                                        Obat
+                                                                    </th>
+                                                                    <th
+                                                                        class="px-6 py-2 text-xs text-gray-500"
+                                                                    >
+                                                                        Konsumsi
+                                                                        harian
+                                                                    </th>
+                                                                    <th
+                                                                        class="px-6 py-2 text-xs text-gray-500"
+                                                                    >
+                                                                        Hari
+                                                                        konsumsi
+                                                                    </th>
+                                                                    <th
+                                                                        class="px-6 py-2 text-xs text-gray-500"
+                                                                    >
+                                                                        Stok
+                                                                        terpakai
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody
+                                                                class="bg-white divide-y divide-gray-300"
                                                             >
-                                                                <div
-                                                                    class="text-sm text-gray-900"
-                                                                >
-                                                                    Rp.
-                                                                    {{
-                                                                        layanan.harga_layanan
-                                                                    }}
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr
-                                                            class="font-extrabold text-black whitespace-nowrap"
-                                                        >
-                                                            <td
-                                                                class="px-6 py-4 text-sm"
-                                                            >
-                                                                Total
-                                                            </td>
-                                                            <td
-                                                                class="px-6 py-4"
-                                                            >
-                                                                <div
-                                                                    class="text-sm text-gray-900"
-                                                                >
-                                                                    Rp.
-                                                                    {{
-                                                                        totalHarga
-                                                                    }}
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr
-                                                            class="font-extrabold text-black whitespace-nowrap"
-                                                        >
-                                                            <td
-                                                                class="px-6 py-4 text-sm"
-                                                            >
-                                                                Status bayar
-                                                            </td>
-                                                            <td
-                                                                class="px-6 py-4"
-                                                            >
-                                                                <div
-                                                                    class="text-sm text-gray-900"
-                                                                    v-if="
-                                                                        pembayaran.status_bayar ==
-                                                                        null
+                                                                <tr
+                                                                    class="whitespace-nowrap"
+                                                                    v-for="layanan in props.layanans"
+                                                                    :key="
+                                                                        layanan
                                                                     "
                                                                 >
-                                                                    Belum bayar
-                                                                </div>
-                                                                <div
-                                                                    class="text-sm text-gray-900"
-                                                                    v-else
+                                                                    <td
+                                                                        class="px-6 py-4 text-sm text-gray-500"
+                                                                    >
+                                                                        {{
+                                                                            layanan.nama_layanan
+                                                                        }}
+                                                                    </td>
+                                                                    <td
+                                                                        class="px-6 py-4"
+                                                                    >
+                                                                        <div
+                                                                            class="text-sm text-gray-900"
+                                                                        >
+                                                                            Rp.
+                                                                            {{
+                                                                                layanan.harga_layanan
+                                                                            }}
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr
+                                                                    class="whitespace-nowrap"
+                                                                    v-for="obat in props
+                                                                        .resep_obat
+                                                                        .obat"
+                                                                    :key="obat"
                                                                 >
-                                                                    Lunas
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                                                    <td
+                                                                        class="px-6 py-4 text-sm text-gray-500"
+                                                                    ></td>
+                                                                    <td
+                                                                        class="px-6 py-4 text-sm text-gray-500"
+                                                                    ></td>
+                                                                    <td
+                                                                        class="px-6 py-4 text-sm text-gray-500"
+                                                                    >
+                                                                        {{
+                                                                            obat.nama_obat
+                                                                        }}
+                                                                    </td>
+                                                                    <td
+                                                                        class="px-6 py-4 text-sm text-gray-500"
+                                                                    >
+                                                                        Rp.
+                                                                        {{
+                                                                            obat.harga_obat
+                                                                        }}
+                                                                    </td>
+                                                                    <td
+                                                                        class="px-6 py-4 text-sm text-gray-500"
+                                                                    >
+                                                                        Rp.
+                                                                        {{
+                                                                            obat.harga_obat *
+                                                                            (resep_obat.total_hari *
+                                                                                resep_obat.konsumsi_harian)
+                                                                        }}
+                                                                    </td>
+                                                                    <td
+                                                                        class="px-6 py-4 text-sm text-gray-500"
+                                                                    >
+                                                                        {{
+                                                                            resep_obat.konsumsi_harian
+                                                                        }}
+                                                                        x sehari
+                                                                    </td>
+                                                                    <td
+                                                                        class="px-6 py-4 text-sm text-gray-500"
+                                                                    >
+                                                                        {{
+                                                                            resep_obat.total_hari
+                                                                        }}
+                                                                        Hari
+                                                                    </td>
+                                                                    <td
+                                                                        class="px-6 py-4 text-sm text-gray-500"
+                                                                    >
+                                                                        {{
+                                                                            resep_obat.total_hari *
+                                                                            resep_obat.konsumsi_harian
+                                                                        }}
+                                                                        butir
+                                                                    </td>
+                                                                </tr>
+                                                                <tr
+                                                                    class="whitespace-nowrap"
+                                                                >
+                                                                    <td
+                                                                        colspan="7"
+                                                                    >
+                                                                        Total
+                                                                        bayar
+                                                                    </td>
+                                                                    <td>
+                                                                        Rp.
+                                                                        {{
+                                                                            pembayaran.total_bayar
+                                                                        }}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr
+                                                                    class="whitespace-nowrap"
+                                                                >
+                                                                    <td
+                                                                        colspan="7"
+                                                                    >
+                                                                        Status
+                                                                        bayar
+                                                                    </td>
+                                                                    <td>
+                                                                        <div
+                                                                            class="text-sm text-gray-900"
+                                                                            v-if="
+                                                                                pembayaran.status_bayar ==
+                                                                                null
+                                                                            "
+                                                                        >
+                                                                            Belum
+                                                                            bayar
+                                                                        </div>
+                                                                        <div
+                                                                            v-else
+                                                                            class="text-sm text-gray-900"
+                                                                        >
+                                                                            Lunas
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <SuccessButton
-                                        v-if="pembayaran.status_bayar == null"
-                                        :href="
-                                            route(
-                                                'admin.rekamMedis.pembayaran_lunas',
-                                                [user.id, rekam_medis.id]
-                                            )
-                                        "
-                                    >
-                                        Tandai sudah lunas</SuccessButton
-                                    >
                                 </div>
                             </h2>
+                            <div class="text-center">
+                                <SuccessButton
+                                    v-if="pembayaran.status_bayar == null"
+                                    :href="
+                                        route(
+                                            'admin.rekamMedis.pembayaran_lunas',
+                                            [user.id, rekam_medis.id]
+                                        )
+                                    "
+                                >
+                                    Tandai sudah lunas</SuccessButton
+                                >
+                            </div>
                         </div>
                     </div>
                 </div>

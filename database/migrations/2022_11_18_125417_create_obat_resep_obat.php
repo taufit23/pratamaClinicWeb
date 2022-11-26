@@ -12,16 +12,10 @@ return new class () extends Migration {
      */
     public function up()
     {
-        Schema::create('pasiens', function (Blueprint $table) {
+        Schema::create('obat_resep_obat', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->string('name');
-            $table->bigInteger('ktp');
-            $table->bigInteger('bpjs')->nullable();
-            $table->bigInteger('no_hp');
-            $table->string('jenis_kelamin');
-            $table->date('tanggal_lahir');
-            $table->text('alamat');
+            $table->integer('obat_id');
+            $table->integer('resep_obat_id');
             $table->timestamps();
         });
     }
@@ -33,6 +27,6 @@ return new class () extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('pasiens');
+        Schema::dropIfExists('obat_resep_obat');
     }
 };

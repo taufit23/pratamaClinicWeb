@@ -51,4 +51,8 @@ class RekamMedis extends Model
     {
         return $this->belongsTo(Pembayaran::class);
     }
+    public function resep_obat()
+    {
+        $this->hasOne(ResepObat::class);
+    }
 }

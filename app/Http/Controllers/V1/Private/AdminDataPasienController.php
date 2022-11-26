@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\V1\Private;
 
 use App\Http\Controllers\Controller;
+use App\Models\Obat;
 use App\Models\Pasien;
 use App\Models\Pembayaran;
 use App\Models\RekamMedis;
+use App\Models\ResepObat;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -131,6 +133,7 @@ class AdminDataPasienController extends Controller
             'dokter' => $rekamMedis['dokter'],
             'pasien' => Pasien::where('user_id', $user->id)->first(),
             'layanans' => $rekamMedis['layanan'],
+            'resep_obat' => ResepObat::with('obat')->where('rekam_medis_id', $rekamMedis->id)->first(),
             'pembayaran' => Pembayaran::where('rekam_medis_id', $rekamMedis->id)->first()
         ]);
     }
